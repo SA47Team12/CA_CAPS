@@ -9,7 +9,6 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Administrator.findAll", query="SELECT a FROM Administrator a")
 public class Administrator implements Serializable {
 	private static final long serialVersionUID = 1L;
 
