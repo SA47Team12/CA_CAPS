@@ -1,9 +1,17 @@
 package sa47.team12.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 /**
@@ -27,6 +35,7 @@ public class Student implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="enrollment_date")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date enrollmentDate;
 
 	private String firstname;
