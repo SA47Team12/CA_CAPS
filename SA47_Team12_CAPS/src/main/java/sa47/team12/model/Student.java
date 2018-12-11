@@ -1,24 +1,17 @@
 package sa47.team12.model;
 
 import java.io.Serializable;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-
+ 
 /**
  * The persistent class for the student database table.
  * 
  */
 @Entity
+@NamedQuery(name="Student.findAll", query="SELECT s FROM Student s")
 public class Student implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -35,7 +28,6 @@ public class Student implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="enrollment_date")
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date enrollmentDate;
 
 	private String firstname;
@@ -48,9 +40,9 @@ public class Student implements Serializable {
 
 	private String phone;
 
-	//bi-directional many-to-many association to Course
-	@ManyToMany(mappedBy="students")
-	private List<Course> courses;
+	//bi-directional many-to-one association to CourseStudent
+	@OneToMany(mappedBy="student")
+	private List<CourseStudent> courseStudents;
 
 	public Student() {
 	}
@@ -135,12 +127,26 @@ public class Student implements Serializable {
 		this.phone = phone;
 	}
 
-	public List<Course> getCourses() {
-		return this.courses;
+	public List<CourseStudent> getCourseStudents() {
+		return this.courseStudents;
 	}
 
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
+	public void setCourseStudents(List<CourseStudent> courseStudents) {
+		this.courseStudents = courseStudents;
+	}
+
+	public CourseStudent addCourseStudent(CourseStudent courseStudent) {
+		getCourseStudents().add(courseStudent);
+		courseStudent.setStudent(this);
+
+		return courseStudent;
+	}
+
+	public CourseStudent removeCourseStudent(CourseStudent courseStudent) {
+		getCourseStudents().remove(courseStudent);
+		courseStudent.setStudent(null);
+
+		return courseStudent;
 	}
 
 }

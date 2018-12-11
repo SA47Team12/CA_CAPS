@@ -11,6 +11,7 @@ import java.util.List;
  * 
  */
 @Entity
+@NamedQuery(name="Course.findAll", query="SELECT c FROM Course c")
 public class Course implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -34,31 +35,13 @@ public class Course implements Serializable {
 	@JoinColumn(name="code")
 	private CourseDetail courseDetail;
 
-	//bi-directional many-to-many association to Student
-	@ManyToMany
-	@JoinTable(
-		name="course_student"
-		, joinColumns={
-			@JoinColumn(name="course_id")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="student_id")
-			}
-		)
-	private List<Student> students;
+//	//bi-directional many-to-one association to CourseLecturer
+	@OneToMany(mappedBy="course")
+	private List<CourseLecturer> courseLecturers;
 
-	//bi-directional many-to-many association to Lecturer
-	@ManyToMany
-	@JoinTable(
-		name="course_lecturer"
-		, joinColumns={
-			@JoinColumn(name="course_id")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="lecturer_id")
-			}
-		)
-	private List<Lecturer> lecturers;
+	//bi-directional many-to-one association to CourseStudent
+	@OneToMany(mappedBy="course")
+	private List<CourseStudent> courseStudents;
 
 	public Course() {
 	}
@@ -103,20 +86,48 @@ public class Course implements Serializable {
 		this.courseDetail = courseDetail;
 	}
 
-	public List<Student> getStudents() {
-		return this.students;
+	public List<CourseLecturer> getCourseLecturers() {
+		return this.courseLecturers;
 	}
 
-	public void setStudents(List<Student> students) {
-		this.students = students;
+	public void setCourseLecturers(List<CourseLecturer> courseLecturers) {
+		this.courseLecturers = courseLecturers;
 	}
 
-	public List<Lecturer> getLecturers() {
-		return this.lecturers;
+	public CourseLecturer addCourseLecturer(CourseLecturer courseLecturer) {
+		getCourseLecturers().add(courseLecturer);
+		courseLecturer.setCourse(this);
+
+		return courseLecturer;
 	}
 
-	public void setLecturers(List<Lecturer> lecturers) {
-		this.lecturers = lecturers;
+	public CourseLecturer removeCourseLecturer(CourseLecturer courseLecturer) {
+		getCourseLecturers().remove(courseLecturer);
+		courseLecturer.setCourse(null);
+
+		return courseLecturer;
+	}
+
+	public List<CourseStudent> getCourseStudents() {
+		return this.courseStudents;
+	}
+
+	public void setCourseStudents(List<CourseStudent> courseStudents) {
+		this.courseStudents = courseStudents;
+	}
+
+	public CourseStudent addCourseStudent(CourseStudent courseStudent) {
+		getCourseStudents().add(courseStudent);
+		courseStudent.setCourse(this);
+
+		return courseStudent;
+	}
+
+	public CourseStudent removeCourseStudent(CourseStudent courseStudent) {
+		getCourseStudents().remove(courseStudent);
+		courseStudent.setCourse(null);
+
+		return courseStudent;
 	}
 
 }

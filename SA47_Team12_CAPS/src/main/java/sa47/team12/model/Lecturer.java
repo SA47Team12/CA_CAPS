@@ -4,12 +4,13 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
-
+ 
 /**
  * The persistent class for the lecturer database table.
  * 
  */
 @Entity
+@NamedQuery(name="Lecturer.findAll", query="SELECT l FROM Lecturer l")
 public class Lecturer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -29,9 +30,9 @@ public class Lecturer implements Serializable {
 
 	private String phone;
 
-	//bi-directional many-to-many association to Course
-	@ManyToMany(mappedBy="lecturers")
-	private List<Course> courses;
+	//bi-directional many-to-one association to CourseLecturer
+	@OneToMany(mappedBy="lecturer")
+	private List<CourseLecturer> courseLecturers;
 
 	public Lecturer() {
 	}
@@ -92,12 +93,26 @@ public class Lecturer implements Serializable {
 		this.phone = phone;
 	}
 
-	public List<Course> getCourses() {
-		return this.courses;
+	public List<CourseLecturer> getCourseLecturers() {
+		return this.courseLecturers;
 	}
 
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
+	public void setCourseLecturers(List<CourseLecturer> courseLecturers) {
+		this.courseLecturers = courseLecturers;
+	}
+
+	public CourseLecturer addCourseLecturer(CourseLecturer courseLecturer) {
+		getCourseLecturers().add(courseLecturer);
+		courseLecturer.setLecturer(this);
+
+		return courseLecturer;
+	}
+
+	public CourseLecturer removeCourseLecturer(CourseLecturer courseLecturer) {
+		getCourseLecturers().remove(courseLecturer);
+		courseLecturer.setLecturer(null);
+
+		return courseLecturer;
 	}
 
 }
