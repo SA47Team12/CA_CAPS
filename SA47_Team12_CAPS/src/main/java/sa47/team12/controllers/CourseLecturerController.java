@@ -20,10 +20,20 @@ public class CourseLecturerController {
 	* @return
 	*/
      
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView ListStudentPage() {
-	ModelAndView mav = new ModelAndView("CourseLecturerlist");
-	mav.addObject("courselecturers", csService.findCourseLecturerbyLID(2005));
+	@RequestMapping(value = "/findcoursetaught", method = RequestMethod.GET)
+	public ModelAndView findCourseTaught() {
+	ModelAndView mav = new ModelAndView("CourseLecturerTaughtlist");
+	mav.addObject("courselecturers", csService.findCourseTaughtbyLID(2005));
 	return mav;
 	}
+	
+	@RequestMapping(value = "/findcourseenrollment", method = RequestMethod.GET)
+	public ModelAndView findCourseEnrollment() {
+	ModelAndView mav = new ModelAndView("CourseLecturerEnrollmentlist");
+	mav.addObject("courselecturers", csService.findCourseEnrollmentbyLID(2005));
+	return mav;
+	}
+	
+	
+	
 }

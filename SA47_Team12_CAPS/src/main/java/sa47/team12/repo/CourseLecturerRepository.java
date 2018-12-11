@@ -11,6 +11,9 @@ import sa47.team12.model.CourseLecturer;;
 public interface CourseLecturerRepository  extends JpaRepository<CourseLecturer, Integer>{
 	
 	@Query("SELECT c from CourseLecturer c WHERE c.lecturer.lecturerId = :lid")
-	ArrayList<CourseLecturer> findCourseLecturerbyLID(@Param("lid") Integer lid);
+	ArrayList<CourseLecturer> findCourseTaughtbyLID(@Param("lid") Integer lid);
+	
+	@Query("SELECT c from CourseLecturer c WHERE c.lecturer.lecturerId = :lid")
+	ArrayList<CourseLecturer> findCourseEnrollmentbyLID(@Param("lid") Integer lid);
 	  
 }

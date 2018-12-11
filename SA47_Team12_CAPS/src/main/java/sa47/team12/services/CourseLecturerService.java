@@ -8,6 +8,7 @@ import sa47.team12.model.CourseLecturer;
 public interface CourseLecturerService {
 	ArrayList<CourseLecturer> findAllCourseLecturer();
 	
-	ArrayList<CourseLecturer> findCourseLecturerbyLID(Integer lid);
+	ArrayList<CourseLecturer> findCourseTaughtbyLID(Integer lid);
 	 
+	ArrayList<CourseLecturer> findCourseEnrollmentbyLID(Integer lid);
 }
