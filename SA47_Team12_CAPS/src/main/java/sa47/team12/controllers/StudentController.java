@@ -27,46 +27,46 @@ public class StudentController {
 	//@PathVariable Integer stuID
 	@RequestMapping(value = "/grade", method = RequestMethod.GET)
 	public ModelAndView GradePage() {
-		ModelAndView mav = new ModelAndView("student-grade");
-		ArrayList<CourseStudent> courses = csService.findAll();
-		//String GPA = csService.calculateGPA(3002);
-		mav.addObject("GPA", 3.2);
+		ModelAndView mav = new ModelAndView("student_grade");
+		ArrayList<CourseStudent> courses = csService.listGrade(3002);
+		String GPA = csService.calculateGPA(3002);
+		mav.addObject("GPA", GPA);
 		mav.addObject("courses", courses);
 		return mav;
 	}
-	
-//	@RequestMapping(value = "/currentcourses", method = RequestMethod.GET)
-//	public ModelAndView curCoursePage(@PathVariable Integer stuID) {
-//		ModelAndView mav = new ModelAndView("student-current-course");
-//		ArrayList<CourseStudent> courses = csService.listCurrentCourse(stuID);
-//		mav.addObject("courses", courses);
-//		return mav;
-//	}
-//	
+	//@PathVariable Integer stuID
+	@RequestMapping(value = "/currentcourses", method = RequestMethod.GET)
+	public ModelAndView curCoursePage() {
+		ModelAndView mav = new ModelAndView("student_current_course");
+		ArrayList<CourseStudent> courses = csService.listCurrentCourse(3002);
+		mav.addObject("courses", courses);
+		return mav;
+	}
+	//@PathVariable Integer stuID
 //	@RequestMapping(value = "/enroll", method = RequestMethod.GET)
-//	public ModelAndView EnrollCoursePage(@PathVariable Integer stuID) {
-//		ModelAndView mav = new ModelAndView("student-enroll");
-//		ArrayList<Course> courses = csService.listUntakeCourse(stuID);
+//	public ModelAndView EnrollCoursePage() {
+//		ModelAndView mav = new ModelAndView("student_enroll");
+//		ArrayList<Course> courses = csService.listUntakeCourse(3002);
 //		mav.addObject("courses", courses);
 //		return mav;
 //	}
-//	
-//	@RequestMapping(value = "/enroll_status", method = RequestMethod.GET)
-//	public ModelAndView editCoursePage(@PathVariable Integer stuID) {
-//		ModelAndView mav = new ModelAndView("student-enroll-status");
-//		ArrayList<CourseStudent> pendcourses = csService.listPendingCourse(stuID);
-//		ArrayList<CourseStudent> rejectcourses = csService.listRejectCourse(stuID);
-//		mav.addObject("pcourses", pendcourses);
-//		mav.addObject("rcourses", rejectcourses);
-//		return mav;
-//	}
-//	
-//	@RequestMapping(value = "/profile", method = RequestMethod.GET)
-//	public ModelAndView StudentInfoPage(@PathVariable Integer stuID) {
-//		ModelAndView mav = new ModelAndView("student-profile");
-//		Student student = sService.findStudent(stuID);
-//		mav.addObject("student", student);
-//		return mav;
-//	}
+	//@PathVariable Integer stuID
+	@RequestMapping(value = "/enroll_status", method = RequestMethod.GET)
+	public ModelAndView editCoursePage() {
+		ModelAndView mav = new ModelAndView("student_enroll_status");
+		ArrayList<CourseStudent> pendcourses = csService.listPendingCourse(3002);
+		ArrayList<CourseStudent> rejectcourses = csService.listRejectCourse(3002);
+		mav.addObject("pcourses", pendcourses);
+		mav.addObject("rcourses", rejectcourses);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/profile", method = RequestMethod.GET)
+	public ModelAndView StudentInfoPage(@PathVariable Integer stuID) {
+		ModelAndView mav = new ModelAndView("student_profile");
+		Student student = sService.findStudent(stuID);
+		mav.addObject("student", student);
+		return mav;
+	}
 
 }

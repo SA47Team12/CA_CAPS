@@ -12,7 +12,10 @@ import sa47.team12.model.Course;
 public interface CourseRepo extends JpaRepository<Course, Integer>{
 
 //	@Query("SELECT c FROM Course c LEFT JOIN "
-//			+ "(SELECT cs FROM CourseStudent cs WHERE cs.studentId = :stuID AND cs.enrollmentStatus IN ('accepted','pending')) cs"
-//			+ "on c.courseId = cs.courseId WHERE cs.courseId IS NULL")
+//			+ "(SELECT cs FROM CourseStudent cs WHERE cs.student.studentId = :stuID AND cs.enrollmentStatus IN ('accepted','pending')) css"
+//			+ " ON c.courseId = css.course.courseId WHERE css.course.courseId IS NULL")
+	
+//	@Query("SELECT c FROM Course WHERE c.courseId NOT IN "
+//			+ "(SELECT cs.course.courseId FROM CourseStudent cs WHERE cs.student.studentId = :stuID AND cs.enrollmentStatus IN ('accepted','pending'))")
 //	ArrayList<Course> listUntakeCourses(@Param("stuID") Integer stuID);
 }
