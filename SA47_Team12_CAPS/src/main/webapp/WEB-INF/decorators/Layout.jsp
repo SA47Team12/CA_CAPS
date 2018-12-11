@@ -96,9 +96,9 @@
 			<tr>
 				<td class="sidebar-links">
 					<ul>
-						<li><a href="#1">View Courses Taught</a></li>
+						<li><a href="/SA47_Team12_CAPS/courselecturer/findcoursetaught">View Courses Taught</a></li>
 						<br />
-						<li><a href="#2">View Course Enrollment</a></li>
+						<li><a href="/SA47_Team12_CAPS/courselecturer/findcourseenrollment">View Course Enrollment</a></li>
 						<br />
 						<li><a href="#3">Grade a Course</a></li>
 						<br />
