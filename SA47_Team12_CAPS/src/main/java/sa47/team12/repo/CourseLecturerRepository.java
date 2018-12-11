@@ -12,5 +12,5 @@ public interface CourseLecturerRepository  extends JpaRepository<CourseLecturer,
 	
 	@Query("SELECT c from CourseLecturer c WHERE c.lecturer.lecturerId = :lid")
 	ArrayList<CourseLecturer> findCourseLecturerbyLID(@Param("lid") Integer lid);
-	
+	 
 }

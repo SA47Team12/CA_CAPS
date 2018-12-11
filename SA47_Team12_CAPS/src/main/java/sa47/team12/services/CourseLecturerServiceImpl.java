@@ -25,6 +25,7 @@ public class CourseLecturerServiceImpl implements CourseLecturerService {
 	public ArrayList<CourseLecturer> findCourseLecturerbyLID(Integer lid) {
 		
 	return clRepository.findCourseLecturerbyLID(lid);
+	
 	}
 
 
