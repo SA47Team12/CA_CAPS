@@ -18,14 +18,14 @@
 
 	<div class="tab">
 		<button class="tablinks" onclick="openTab(event, 'Home')">
-			<i class="fa fa-home" style="font-size: 27px"></i>
+			<i class="fa fa-home" style="font-size: 30px"></i>
 		</button>
 		<button class="tablinks" onclick="openTab(event, 'Admin')">Admin</button>
 		<button class="tablinks" onclick="openTab(event, 'Student')">Student</button>
 		<button class="tablinks" onclick="openTab(event, 'Lecturer')">Lecturer</button>
 		<div class="topnav-right">
 			<button class="tablinks" onclick="openTab(event, 'Logout')">
-				<i class="fa fa-power-off" style="font-size: 27px"></i>
+				<i class="fa fa-power-off" style="font-size: 30px"></i>
 			</button>
 		</div>
 	</div>
@@ -40,20 +40,20 @@
 				<td class="sidebar-links">
 
 					<ul>
-						<li><a href="#1">Link 1</a></li>
+						<li><a href="#1">Manage Students</a></li>
 						<br />
-						<li><a href="#2">Link 2</a></li>
+						<li><a href="#2">Manage Lecturer</a></li>
 						<br />
-						<li><a href="#3">Link 3</a></li>
+						<li><a href="#3">Manage Course</a></li>
 						<br />
-						<li><a href="#4">Link 4</a></li>
+						<li><a href="#4">Manage Enrollment</a></li>
 					</ul>
 
 				</td>
 				<td><%@include file="Menu.jsp"%>
-					<table >
-						<tr >
-							<td >
+					<table>
+						<tr>
+							<td>
 								<div>
 									<dec:body />
 								</div>
@@ -63,10 +63,65 @@
 			</tr>
 		</table>
 	</div>
-	<div id="Student" class="tabcontent"></div>
+
+	<div id="Student" class="tabcontent">
+		<table class="sidebar">
+			<tr>
+				<td class="sidebar-links">
+					<ul>
+						<li><a href="#1">Grades and GPA</a></li>
+						<br />
+						<li><a href="#2">View Courses</a></li>
+						<br />
+						<li><a href="#3">Enroll for a Course</a></li>
+					</ul>
+				</td>
+				<td><%@include file="Menu.jsp"%>
+					<table>
+						<tr>
+							<td>
+								<div>
+									<dec:body />
+								</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
 
 	<div id="Lecturer" class="tabcontent">
-		<div class="login">
+		<table class="sidebar">
+			<tr>
+				<td class="sidebar-links">
+					<ul>
+						<li><a href="#1">View Courses Taught</a></li>
+						<br />
+						<li><a href="#2">View Course Enrollment</a></li>
+						<br />
+						<li><a href="#3">Grade a Course</a></li>
+						<br />
+						<li><a href="#4">View a Student Performance</a></li>
+					</ul>
+				</td>
+				<td><%@include file="Menu.jsp"%>
+					<table>
+						<tr>
+							<td>
+								<div>
+									<dec:body />
+								</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="Logout" class="tabcontent">
+			<div class="login">
 			<form action="/action_page.php">
 				<input type="text" id="fname" name="firstname"
 					placeholder="Your user name ..."> <br> <br> <input
@@ -76,9 +131,6 @@
 			</form>
 		</div>
 		<div></div>
-	</div>
-
-	<div id="Logout" class="tabcontent">
 		<h3>Thank you !</h3>
 	</div>
 
