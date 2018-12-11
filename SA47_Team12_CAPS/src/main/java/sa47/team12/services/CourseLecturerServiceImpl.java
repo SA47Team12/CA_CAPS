@@ -21,5 +21,11 @@ public class CourseLecturerServiceImpl implements CourseLecturerService {
 		// TODO Auto-generated method stub
 		return (ArrayList<CourseLecturer>) clRepository.findAll();
 	}
+	
+	public ArrayList<CourseLecturer> findCourseLecturerbyLID(Integer lid) {
+		
+	return clRepository.findCourseLecturerbyLID(lid);
+	}
+
 
 }

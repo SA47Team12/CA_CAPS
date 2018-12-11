@@ -23,7 +23,7 @@ public class CourseLecturerController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView ListStudentPage() {
 	ModelAndView mav = new ModelAndView("CourseLecturerlist");
-	mav.addObject("courselecturers", csService.findAllCourseLecturer());
+	mav.addObject("courselecturers", csService.findCourseLecturerbyLID(2005));
 	return mav;
 	}
 }
