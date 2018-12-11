@@ -15,6 +15,8 @@ public class Course implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	//GenerationType.IDENTITY means this field will be auto-incremented and will get assigned an id automatically whenever we save a new order.
 	@Column(name="course_id")
 	private int courseId;
 
