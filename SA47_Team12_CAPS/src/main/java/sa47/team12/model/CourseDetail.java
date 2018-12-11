@@ -8,12 +8,12 @@ import java.util.List;
 /**
  * The persistent class for the course_details database table.
  * 
- */
+ */ 
 @Entity
 @Table(name="course_details")
 public class CourseDetail implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+ 
 	@Id
 	@Column(name="course_code")
 	private int courseCode;
