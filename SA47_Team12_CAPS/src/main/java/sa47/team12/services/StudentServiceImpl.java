@@ -13,7 +13,7 @@ import sa47.team12.repo.StudentRepository;
 
 @Service
 public class StudentServiceImpl implements StudentService {
-
+ 
 	@Resource
 	private StudentRepository stuRepository;
 
