@@ -19,7 +19,7 @@ public class CourseLecturerController {
 	* 
 	* @return
 	*/
-    
+     
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView ListStudentPage() {
 	ModelAndView mav = new ModelAndView("CourseLecturerlist");

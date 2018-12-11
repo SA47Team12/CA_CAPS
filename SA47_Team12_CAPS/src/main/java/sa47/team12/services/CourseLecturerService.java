@@ -9,5 +9,5 @@ public interface CourseLecturerService {
 	ArrayList<CourseLecturer> findAllCourseLecturer();
 	
 	ArrayList<CourseLecturer> findCourseLecturerbyLID(Integer lid);
-	
+	 
 }

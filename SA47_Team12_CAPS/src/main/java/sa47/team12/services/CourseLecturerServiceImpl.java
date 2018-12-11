@@ -18,7 +18,7 @@ public class CourseLecturerServiceImpl implements CourseLecturerService {
 
 	@Override
 	public ArrayList<CourseLecturer> findAllCourseLecturer() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 
 		return (ArrayList<CourseLecturer>) clRepository.findAll();
 	}
 	
