@@ -57,8 +57,8 @@ th, td {
 			<td>${student.phone}</td>
 			<td>${student.address}</td>
 			<td>${student.enrollmentDate}</td>
-			<td>Edit</td>
-			<td>Delete</td>
+			<td><a href="${pageContext.request.contextPath}/admin/edit/${student.studentId}.html">Edit</a></td>
+			<td><a href="${pageContext.request.contextPath}/admin/delete/${student.studentId}.html">Delete</a></td>
 		</tr>
 		</c:forEach>
 	</table>

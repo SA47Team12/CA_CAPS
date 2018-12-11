@@ -41,7 +41,7 @@ public class Student implements Serializable {
 	private String phone;
 
 	//bi-directional many-to-one association to CourseStudent
-	@OneToMany(mappedBy="student")
+	@OneToMany(mappedBy="student",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<CourseStudent> courseStudents;
 
 	public Student() {
@@ -147,6 +147,11 @@ public class Student implements Serializable {
 		courseStudent.setStudent(null);
 
 		return courseStudent;
+	}
+
+	public String getstudentId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
