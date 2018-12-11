@@ -9,152 +9,95 @@ html {
 	width: 100%;
 }
 
-#page-header{
-	height: 75px;
+body {
+	font-family: Arial;
 }
 
-#nav-container{
-	height: 30px;
-	background-color: #bfbfbf;
-}
-
-#left-nav-container{
-	width: 150px;
-}
-body { 
-	font: 75% georgia, sans-serif;
-	line-height: 1.88889;
-	color: #555753; 
-	background: #fff url(blossoms.jpg) no-repeat bottom right; 
-	margin: 0; 
-	padding: 0;
-	}
-p { 
-	margin-top: 0; 
-	text-align: justify;
-	}
-h3 { 
-	font: italic normal 1.4em georgia, sans-serif;
-	letter-spacing: 1px; 
-	margin-bottom: 0; 
-	color: #7D775C;
-	}
-a:link { 
-	font-weight: bold; 
-	text-decoration: none; 
-	color: #D4CDDC;
-	}
-a:visited { 
-	font-weight: bold; 
-	text-decoration: none; 
-	color: #9685BA;
-	}
-a:hover, a:focus, a:active { 
-	text-decoration: underline; 
-	color: #9685BA;
-	}
-abbr {
-	border-bottom: none;
-	}
-h1 { 
-	background: transparent url(h1.gif) no-repeat top left;
-	margin-top: 10px;
-	display: block;
-	width: 219px;
-	height: 87px;
-	float: left;
-	text-indent: 100%;
-	white-space: nowrap;
+/* Style the tab */
+.tab {
 	overflow: hidden;
-	}
-h2 { 
-	background: transparent url(h2.gif) no-repeat top left; 
-	margin-top: 58px; 
-	margin-bottom: 40px; 
-	width: 200px; 
-	height: 18px; 
+	border: 1px solid #33cccc;
+	background-color: #33cccc;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 36px;
+	transition: 0.3s;
+	font-size: 25px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #c2f0f0;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #000000;
+	color: white;
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: 20px 6px;
+	border: 1px solid #ccc;
+	border-top: none;
+	background-color: #d6f5f5;
+}
+
+.topnav-right {
 	float: right;
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	}
-header {
-	padding-top: 20px;
-	height: 87px;
 }
-footer { 
-	text-align: center; 
-	}
-footer a:link, footer a:visited { 
-	margin-right: 20px; 
-	}
-.summary {
-	clear: both; 
-	margin: 20px 20px 20px 10px; 
-	width: 160px; 
-	float: left;
-	}
+
+/*side bars*/
 .sidebar {
-	margin-left: 600px; 
-	position: absolute; 
-	top: 0; 
-	right: 0;
-	}
-	
-	
-button {
-	border : thin;
-	border-style : none none none none;
-	background : transparent;
-	margin : 0px 0px 0px 0px;
-	padding : 0px 0px 0px 0px;
-	white-space : normal;
-	width : auto;
+	width: 100%;
 }
 
-frame	{
-	margin : 0px 0px 0px 0px;
-	border : none;
-	border-width : 0px 0px 0px 0px;
-	padding : 0px 0px 0px 0px;
+.sidebar-links {
+	width: 15%;
+	background-color: #adebeb;
+	border-radius: 9px;
 }
 
-table.framed	{
-	border : thin groove Maroon;
+ul {
+	list-style-type: none;
 }
 
-
-.applicationTitle {
-	background : #660000;
-	color : white;
-	font-size : 16pt;
+/*login*/
+.login {
+	margin: 8px 300px;
 }
 
-.pageTitle {
-	color : #003366;
-	font-weight : lighter;
-	font-size : 16pt;
+input[type=text], select {
+	width: 50%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
 }
 
-.userTitle {
-	color : #000066;
-	font-size : 12pt;
-	font-weight : lighter;
+input[type=login] {
+	width: 10%;
+	background-color: #000000;
+	color: white;
+	padding: 12px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 5px;
+	font-weight: 500;
 }
 
-.listSectionHeading {
-	color : #000066;
-	font-size : 11pt;
-	background : #EEEEFF;
-        text-align : left;
+input[type=login]:hover {
+	background-color: #33cccc;
+	color: black;
 }
-
-.listHeading {
-}
-
-.listRecord {
-}
-
-.even { background-color: #EFFBEF; }
-.odd { background-color: white; }
-	

@@ -6,8 +6,22 @@
 <html>
 
 <style>
-table, th, td {
+/* table, th, td {
 	border: 1px solid black;
+}
+ */
+td, th {  
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 15px;
 }
 </style>
 
@@ -29,7 +43,9 @@ table, th, td {
 			<th></th>
 			<th></th>
 		</tr>
+		
 		<c:forEach var="student" items="${students}" varStatus="status">
+		<tr>
 			<td>${status.index}</td>
 			<td>${student.studentId}</td>
 			<td>${student.firstname}</td>
@@ -43,6 +59,7 @@ table, th, td {
 			<td>${student.enrollmentDate}</td>
 			<td>Edit</td>
 			<td>Delete</td>
+		</tr>
 		</c:forEach>
 	</table>
 </c:if>

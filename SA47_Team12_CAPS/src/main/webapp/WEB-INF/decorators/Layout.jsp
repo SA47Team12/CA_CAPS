@@ -4,27 +4,107 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
-<c:url value="/css/style.css" var="ss"/>
-<link rel="STYLESHEET" type="text/css"
-	href="${ss}" />
+<c:url value="/css/style.css" var="ss" />
+<link rel="STYLESHEET" type="text/css" href="${ss}" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<h1> Student CRUD Demo</h1>
-<%@include file="Menu.jsp"%>
-	<table style="width: 100%">
-		<tr>
-			<td>
-				<div>
-					<dec:body />
-				</div>
-			</td>
-		</tr>
-	</table>
-	
+	<div>
+		<h1>
+			<i class="fa fa-graduation-cap" style="font-size: 60px"></i>CAPS
+		</h1>
+	</div>
+
+	<div class="tab">
+		<button class="tablinks" onclick="openTab(event, 'Home')">
+			<i class="fa fa-home" style="font-size: 27px"></i>
+		</button>
+		<button class="tablinks" onclick="openTab(event, 'Admin')">Admin</button>
+		<button class="tablinks" onclick="openTab(event, 'Student')">Student</button>
+		<button class="tablinks" onclick="openTab(event, 'Lecturer')">Lecturer</button>
+		<div class="topnav-right">
+			<button class="tablinks" onclick="openTab(event, 'Logout')">
+				<i class="fa fa-power-off" style="font-size: 27px"></i>
+			</button>
+		</div>
+	</div>
+
+	<div id="Home" class="tabcontent">
+		<h3>Welcome ^_^</h3>
+	</div>
+
+	<div id="Admin" class="tabcontent">
+		<table class="sidebar">
+			<tr>
+				<td class="sidebar-links">
+
+					<ul>
+						<li><a href="#1">Link 1</a></li>
+						<br />
+						<li><a href="#2">Link 2</a></li>
+						<br />
+						<li><a href="#3">Link 3</a></li>
+						<br />
+						<li><a href="#4">Link 4</a></li>
+					</ul>
+
+				</td>
+				<td><%@include file="Menu.jsp"%>
+					<table >
+						<tr >
+							<td >
+								<div>
+									<dec:body />
+								</div>
+							</td>
+						</tr>
+					</table></td>
+			</tr>
+		</table>
+	</div>
+	<div id="Student" class="tabcontent"></div>
+
+	<div id="Lecturer" class="tabcontent">
+		<div class="login">
+			<form action="/action_page.php">
+				<input type="text" id="fname" name="firstname"
+					placeholder="Your user name ..."> <br> <br> <input
+					type="text" id="lname" name="lastname"
+					placeholder="Your password ..."> <br> <br> <input
+					type="login" value="Login">
+			</form>
+		</div>
+		<div></div>
+	</div>
+
+	<div id="Logout" class="tabcontent">
+		<h3>Thank you !</h3>
+	</div>
+
 	<!-- ======== Footer ======== -->
-				<div id="footer" align="center">
-				  <hr>
-					<small> &copy; ISS NUS SA47 2018 </small>
-				</div>
+	<div id="footer" align="center">
+		<hr>
+		<small> &copy; ISS NUS SA47 Team-12 2018 </small>
+	</div>
+
+	<script>
+		function openTab(evt, tabName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(
+						" active", "");
+			}
+			document.getElementById(tabName).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+	</script>
+
+
 </body>
 </html>
