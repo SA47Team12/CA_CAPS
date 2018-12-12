@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import sa47.team12.model.Course;
 import sa47.team12.model.CourseStudent;
@@ -61,6 +62,17 @@ public class StudentController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/enroll_status/delete/{id}", method = RequestMethod.GET)
+	public ModelAndView DeletePendCourse(@PathVariable Integer id, final RedirectAttributes redirectAttributes){
+		ModelAndView mav = new ModelAndView("redirect:/student/enroll_status");
+		CourseStudent cs = csService.findCSById(id);
+		csService.removeCS(cs);
+		String message = "The course application " + cs.getCourse().getCourseDetail().getName() + " was successfully deleted.";
+
+		redirectAttributes.addFlashAttribute("message", message);
+		return mav;
+	}
+	
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
 	public ModelAndView StudentInfoPage(@PathVariable Integer stuID) {
 		ModelAndView mav = new ModelAndView("student_profile");
@@ -68,5 +80,7 @@ public class StudentController {
 		mav.addObject("student", student);
 		return mav;
 	}
+	
+	
 
 }
