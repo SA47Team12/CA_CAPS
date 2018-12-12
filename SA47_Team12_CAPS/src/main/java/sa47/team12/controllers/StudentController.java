@@ -62,16 +62,16 @@ public class StudentController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/enroll_status/delete/{id}", method = RequestMethod.GET)
-	public ModelAndView DeletePendCourse(@PathVariable Integer id, final RedirectAttributes redirectAttributes){
-		ModelAndView mav = new ModelAndView("redirect:/student/enroll_status");
-		CourseStudent cs = csService.findCSById(id);
-		csService.removeCS(cs);
-		String message = "The course application " + cs.getCourse().getCourseDetail().getName() + " was successfully deleted.";
-
-		redirectAttributes.addFlashAttribute("message", message);
-		return mav;
-	}
+//	@RequestMapping(value="/enroll_status/delete/{id}", method = RequestMethod.GET)
+//	public ModelAndView DeletePendCourse(@PathVariable Integer id, final RedirectAttributes redirectAttributes){
+//		ModelAndView mav = new ModelAndView("redirect:/student/enroll_status");
+//		CourseStudent cs = csService.findCSById(id);
+//		csService.removeCS(cs);
+//		String message = "The course application " + cs.getCourse().getCourseDetail().getName() + " was successfully deleted.";
+//
+//		redirectAttributes.addFlashAttribute("message", message);
+//		return mav;
+//	}
 	
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
 	public ModelAndView StudentInfoPage(@PathVariable Integer stuID) {
