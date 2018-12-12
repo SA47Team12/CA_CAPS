@@ -113,13 +113,6 @@ public class CourseStudentServiceImpl implements CourseStudentService{
 	
 	@Override
 	@Transactional
-	public CourseStudent findCourseStudent(Integer id)
-	{
-		return (CourseStudent) csRepo.findById(id).get();
-	}
-	
-	@Override
-	@Transactional
 	public CourseStudent updateRecord(CourseStudent cs)
 	{
 		return csRepo.saveAndFlush(cs);

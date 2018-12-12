@@ -37,7 +37,6 @@ CourseStudent findCourseStudent(Integer courseStudentId);
 	
 	void removeCS(CourseStudent cs);
 	
-	CourseStudent findCourseStudent(Integer id);
 	
 	CourseStudent updateRecord(CourseStudent cs);
 
