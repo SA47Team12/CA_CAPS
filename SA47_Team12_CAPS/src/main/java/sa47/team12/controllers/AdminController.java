@@ -17,6 +17,9 @@ import sa47.team12.exception.StudentNotFound;
 import sa47.team12.model.Student;
 import sa47.team12.services.StudentService;
 import sa47.team12.validator.StudentValidator;
+import sa47.team12.model.Lecturer;
+import sa47.team12.services.LecturerService;
+
 
 
 
@@ -27,6 +30,10 @@ public class AdminController {
 private StudentService sService;
 @Autowired
 private StudentValidator sValidator;
+
+@Autowired
+private LecturerService lService;
+
 /**
 * DEPARTMENT CRUD OPERATIONS
 * 
@@ -60,14 +67,14 @@ public ModelAndView createNewStudent(@ModelAttribute @Valid Student student, Bin
 
 
 @RequestMapping(value = "/create", method = RequestMethod.GET)
-public ModelAndView newStudentPage() {
+public ModelAndView newStudentPage1() {
 	ModelAndView mav = new ModelAndView("StudentFormNew", "student", new Student());
 	return mav;
 }
 
 
 @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-public ModelAndView editStudentPage(@PathVariable Integer id) {
+public ModelAndView editStudentPage1(@PathVariable Integer id) {
 	ModelAndView mav = new ModelAndView("StudentFormEdit");
 	mav.addObject("student", sService.findStudent(id));
 	return mav;
@@ -78,8 +85,8 @@ public ModelAndView editStudent(@ModelAttribute @Valid Student student, @PathVar
 		BindingResult result, final RedirectAttributes redirectAttributes)throws StudentNotFound
 	{
 	System.out.println("student"+student.toString());
-	if (result.hasErrors())
-		return new ModelAndView("StudentFormEdit");
+	/*if (result.hasErrors())
+		return new ModelAndView("StudentFormEdit");*/
 	
 	ModelAndView mav = new ModelAndView("redirect:/admin/list");
 	/*sService.updateStudent(student);*/
@@ -94,6 +101,71 @@ public ModelAndView deleteStudent(@PathVariable Integer id, final RedirectAttrib
 	Student student = sService.findStudent(id);
 	sService.removeStudent(student);
 	ModelAndView mav = new ModelAndView("redirect:/admin/list");
+	return mav;
+}
+
+
+@RequestMapping(value = "/llist", method = RequestMethod.GET)
+public ModelAndView ListLecturerPage() {
+ModelAndView mav = new ModelAndView("Lecturerlist");
+mav.addObject("lecturers", lService.findAllLecturers());
+return mav;
+}
+
+@RequestMapping(value = "/lcreate", method = RequestMethod.POST)
+public ModelAndView createNewLecturer(@ModelAttribute @Valid Lecturer lecturer, BindingResult result,
+		final RedirectAttributes redirectAttributes){
+		/*if (result.hasErrors())
+			return new ModelAndView("StudentFormNew");*/
+		ModelAndView mav = new ModelAndView();
+
+		//sService.createStudent(student);
+		//String message = "New student " + student.getNric() + " was successfully created.";
+		mav.setViewName("redirect:/admin/llist");
+		return mav;
+//	sService.updateStudent(student);
+//	ModelAndView mav = new ModelAndView("redirect:/admin/list");
+//	return mav;
+}
+ 
+
+
+
+@RequestMapping(value = "/lcreate", method = RequestMethod.GET)
+public ModelAndView newStudentPage() {
+	ModelAndView mav = new ModelAndView("LceturerFormNew", "lecturer", new Lecturer());
+	return mav;
+}
+
+
+@RequestMapping(value = "/ledit/{lecturerid}", method = RequestMethod.GET)
+public ModelAndView editStudentPage(@PathVariable Integer lecturerid) {
+	ModelAndView mav = new ModelAndView("LecturerFormEdit");
+	mav.addObject("lecturer", lService.findLecturerById(lecturerid));
+	return mav;
+}
+
+@RequestMapping(value = "/ledit/{lecturerid}", method = RequestMethod.POST)
+public ModelAndView editLecturer(@ModelAttribute @Valid Lecturer lecturer, @PathVariable Integer lecturerid,
+		BindingResult result, final RedirectAttributes redirectAttributes)
+	{
+	System.out.println("lecturer"+lecturer.toString());
+	if (result.hasErrors())
+		return new ModelAndView("LecturerFormEdit");
+	
+	ModelAndView mav = new ModelAndView("redirect:/admin/llist");
+	/*sService.updateStudent(student);*/
+	/*String message = "Student" + student.getStudentId() + " was successfully updated.";
+	redirectAttributes.addFlashAttribute("message", message);*/
+	return mav;
+}
+
+@RequestMapping(value = "/ldelete/{lecturerid}", method = RequestMethod.GET)
+public ModelAndView deleteLecturer(@PathVariable Integer lecturerid, final RedirectAttributes redirectAttributes)
+		{
+	Lecturer lecturer = lService.findLecturerById(lecturerid);
+	lService.removeLecturer(lecturer);
+	ModelAndView mav = new ModelAndView("redirect:/admin/llist");
 	return mav;
 }
 }

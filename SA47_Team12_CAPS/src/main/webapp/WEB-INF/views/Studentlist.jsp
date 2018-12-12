@@ -15,7 +15,6 @@
 			<th>Last name</th>
 			<th>Gender</th>
 			<th>Date of birth</th>
-			<th>Password</th>
 			<th>Email id</th>
 			<th>Phone</th>
 			<th>Address</th>
@@ -32,7 +31,6 @@
 			<td>${student.lastname}</td>
 			<td>${student.gender}</td>
 			<td>${student.dob}</td>
-			<td>${student.password}</td>
 			<td>${student.email}</td>
 			<td>${student.phone}</td>
 			<td>${student.address}</td>
