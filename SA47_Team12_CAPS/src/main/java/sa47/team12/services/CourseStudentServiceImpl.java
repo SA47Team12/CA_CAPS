@@ -13,6 +13,8 @@ import sa47.team12.model.Course;
 import sa47.team12.model.CourseStudent;
 import sa47.team12.repo.CourseRepo;
 import sa47.team12.repo.CourseStuRepo;
+import sa47.team12.repo.CourseStudentRepository;
+
 
 @Service
 public class CourseStudentServiceImpl implements CourseStudentService{
@@ -20,6 +22,37 @@ public class CourseStudentServiceImpl implements CourseStudentService{
 	@Resource
 	private CourseStuRepo csRepo;
 	private CourseRepo cRepo;
+	
+	//private CourseRepo cRepo;
+	
+	@Override
+	@Transactional
+    public ArrayList<CourseStudent> findAll(){
+    	return (ArrayList<CourseStudent>)csRepo.findAll();
+    }
+	
+	@Override
+	@Transactional
+	public CourseStudent findCourseStudent(Integer courseStudentId) {
+		return (CourseStudent)csRepo.findById(courseStudentId).get();
+	}
+	
+	
+	@Override
+	@Transactional
+	public ArrayList<CourseStudent> findStudentGradeByCourse(Integer cid) {
+		
+		return csRepo.findStudentGradeByCourse(cid);
+		
+		}
+	
+	@Override
+	@Transactional
+	public void changeCourseStudent(CourseStudent courseStudent) {
+		csRepo.saveAndFlush(courseStudent);
+	}
+
+	
 	
 //	@Override
 //	@Transactional

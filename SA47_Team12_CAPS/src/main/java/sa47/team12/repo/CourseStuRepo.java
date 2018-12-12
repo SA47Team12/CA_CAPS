@@ -28,5 +28,8 @@ public interface CourseStuRepo extends JpaRepository<CourseStudent, Integer>{
 	@Query("SELECT c from CourseStudent c WHERE c.student.studentId = :stuID AND c.enrollmentStatus = 'rejected'")
 	ArrayList<CourseStudent> listRejectCourse(@Param("stuID") Integer stuID);
 
+	@Query("SELECT c from CourseStudent c WHERE c.course.courseId = :cid")
+	ArrayList<CourseStudent> findStudentGradeByCourse(@Param("cid") Integer cid);
+
 
 }

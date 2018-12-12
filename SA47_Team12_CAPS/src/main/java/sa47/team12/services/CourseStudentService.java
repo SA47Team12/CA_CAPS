@@ -23,4 +23,16 @@ public interface CourseStudentService {
 	//CourseStudent findCSById(Integer csID);
 	
 	//void removeCS(CourseStudent cs);
+	
+	ArrayList<CourseStudent> findAll();
+
+	
+CourseStudent findCourseStudent(Integer courseStudentId);
+	
+	
+	ArrayList<CourseStudent> findStudentGradeByCourse(Integer cid);
+	
+	void changeCourseStudent(CourseStudent courseStudent);
+	
+	
 }
