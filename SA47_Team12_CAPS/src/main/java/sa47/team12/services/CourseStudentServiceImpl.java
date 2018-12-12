@@ -100,14 +100,14 @@ public class CourseStudentServiceImpl implements CourseStudentService{
 		NumberFormat formatter =  new DecimalFormat("#0.00");
 		return formatter.format(sumGrade/sumCredit);
 	}
-//	@Override
-//	@Transactional
-//	public CourseStudent findCSById(Integer csID){
-//		return csRepo.findOne(csID);
-//	}
-//	@Override
-//	@Transactional
-//	public void removeCS(CourseStudent cs){
-//		csRepo.delete(cs);
-//	}
+	@Override
+	@Transactional
+	public CourseStudent findCSById(Integer id){
+		return csRepo.findById(id).get();
+	}
+	@Override
+	@Transactional
+	public void removeCS(CourseStudent cs){
+		csRepo.delete(cs);
+	}
 }
