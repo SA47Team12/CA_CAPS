@@ -30,4 +30,10 @@ public class CourseServiceImpl implements CourseService {
 	public ArrayList<Course> listUntakeCourse(Integer stuID) {
 		return cRepository.listUntakeCourse(stuID);
 	}
+	@Override
+	@Transactional
+	public Course UpdateCourse(Course c) {
+		// TODO Auto-generated method stub
+		return cRepository.saveAndFlush(c);
+	}
 }
