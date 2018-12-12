@@ -42,8 +42,8 @@
 				   <td><form:input path ="email"/></td>
 				 </tr>
 				 <tr>
-				 	<td> Password</td>
-				   <td><form:input path ="password"/></td>
+				 	<td> Phone Number</td>
+				   <td><form:input path ="phone"/></td>
 				   </tr>
 				<tr>
 				 <td><input type="submit" value="Submit"> </td>

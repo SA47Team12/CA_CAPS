@@ -14,8 +14,8 @@
 		<center>
 			<table cellpadding=4 cellspacing=2 border=0>
 				<tr>
-					<td>Student ID</td>
-					<td><form:input path="studentId"/></td>
+					<%-- <td>Student ID</td>
+					<td><form:input path="studentId"/></td> --%>
 				</tr>
 				<tr>
 					<td>First Name</td>
@@ -30,8 +30,8 @@
 					<td><form:input path="address"/></td>
 				</tr>
 				<tr>
-					<td>Date of Birth</td>
-					<td><form:input path="dob"/></td>
+					<%-- <td>Date of Birth</td>
+					<td><form:input path="dob"/></td> --%>
 				</tr>
 				<tr>
 					<td>Gender</td>
