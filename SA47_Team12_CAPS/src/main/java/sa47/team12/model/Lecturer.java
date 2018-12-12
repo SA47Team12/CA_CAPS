@@ -31,7 +31,7 @@ public class Lecturer implements Serializable {
 	private String phone;
 
 	//bi-directional many-to-one association to CourseLecturer
-	@OneToMany(mappedBy="lecturer")
+	@OneToMany(mappedBy="lecturer",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<CourseLecturer> courseLecturers;
 
 	public Lecturer() {

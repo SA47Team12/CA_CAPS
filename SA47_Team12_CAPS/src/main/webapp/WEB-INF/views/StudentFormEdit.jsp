@@ -19,7 +19,7 @@
 				 </tr>
 				 <tr>
 				   <td> First Name</td>
-				   <td><input type ="text" value =${student.firstname}></td>
+				   <td><input path = "firstname"></td>
 				 </tr>
 				 <tr>
 				   <td> Last Name</td>

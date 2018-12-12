@@ -16,6 +16,7 @@
 				<tr>
 					<td>Student ID</td>
 					<td><form:input path="studentId"/></td>
+					<td><form:errors path="studentId" cssStyle="color: red;" /></td>
 				</tr>
 				<tr>
 					<td>First Name</td>
