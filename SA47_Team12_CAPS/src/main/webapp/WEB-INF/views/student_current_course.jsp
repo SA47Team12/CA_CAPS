@@ -5,29 +5,10 @@
 
 <html>
 
-<style>
-/* table, th, td {
-	border: 1px solid black;
-}
- */
-td, th {  
-  border: 1px solid #ddd;
-  text-align: left;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th, td {
-  padding: 15px;
-}
-</style>
 
 <a>Current Courses</a>
 <c:if test="${fn:length(courses) gt 0}">
-	<table>
+	<table  class="table table-bordered">
 		<tr>
 			<th>S. No.</th>
 			<th>Code</th>

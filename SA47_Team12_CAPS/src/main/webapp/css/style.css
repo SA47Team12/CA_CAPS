@@ -102,3 +102,37 @@ input[type=login]:hover {
 	background-color: #33cccc;
 	color: black;
 }
+
+/*home page - search tab*/
+.searchtab {
+	background-color: #d6f5f5;
+	border: 5px solid;
+	padding: 25px;
+	margin: 50px 250px;
+}
+
+/*home page - address block */
+.wrapper {
+	text-align: center;
+}
+
+.wrapper ul {
+	display: inline-block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	/* For IE, the outcast */
+	zoom: 1;
+	*display: inline;
+	position: relative;
+	top: 300px;
+}
+
+.wrapper li {
+	float: left;
+	padding: 2px 5px;
+}
+
+.wrapper a {
+	padding: 100;
+}
