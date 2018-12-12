@@ -25,7 +25,7 @@ th, td {
 }
 </style>
 
-<a>AddStudent</a>
+<a href="${pageContext.request.contextPath}/admin/create.html">AddStudent</a>
 <c:if test="${fn:length(students) gt 0}">
 	<table>
 		<tr>
