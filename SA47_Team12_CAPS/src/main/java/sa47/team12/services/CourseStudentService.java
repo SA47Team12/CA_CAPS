@@ -20,7 +20,7 @@ public interface CourseStudentService {
 
 	String calculateGPA(Integer stuID);
 	
-	//CourseStudent findCSById(Integer csID);
+	CourseStudent findCSById(Integer csID);
 	
-	//void removeCS(CourseStudent cs);
+	void removeCS(CourseStudent cs);
 }

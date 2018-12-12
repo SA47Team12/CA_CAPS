@@ -4,6 +4,9 @@ package sa47.team12.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 
 /**
  * The persistent class for the course_student database table.
@@ -25,12 +28,14 @@ public class CourseStudent implements Serializable {
 	private float grade;
 
 	//bi-directional many-to-one association to Course
-	@ManyToOne
+	@ManyToOne (fetch = FetchType.EAGER)
+
 	@JoinColumn(name="course_id")
 	private Course course;
 
 	//bi-directional many-to-one association to Student
-	@ManyToOne
+	@ManyToOne (fetch = FetchType.EAGER)
+	// @OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name="student_id")
 	private Student student;
 
