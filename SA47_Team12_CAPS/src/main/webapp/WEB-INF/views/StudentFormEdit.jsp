@@ -15,39 +15,35 @@
 			<table cellpadding=4 cellspacing=2 border=0>
 				<tr>
 				   <td> Student ID</td>
-				   <td>${student.studentId}</td>
+				   <td><form:input path ="studentId" readonly ="true"/></td>
 				 </tr>
 				 <tr>
 				   <td> First Name</td>
-				   <td><input path = "firstname"></td>
+				   <td><td><form:input path ="firstname" /></td>
 				 </tr>
 				 <tr>
 				   <td> Last Name</td>
-				   <td><input type ="text" value = ${student.lastname}></td>
+				   <td><form:input path ="lastname" /></td>
 				 </tr>
 				<tr>
 				   <td> Address</td>
-				   <td><input type ="text" value =${student.address}></td>
+				   <td><form:input path ="address"/></td>
 				 </tr>
 				<tr>
 				  	<td> Date of Birth</td>
-				   <td><input type ="text" value =${student.dob}></td>
+				   <td><form:input path ="dob"/></td>
 				 </tr>
 				 <tr>
 				  	<td> Gender</td>
-				   <td><input type ="text" value =${student.gender}></td>
+				   <td><form:input path ="gender"/></td>
 				 </tr>
 				<tr>
 				  	<td> Email Id</td>
-				   <td><input type ="text"value =${student.email}></td>
-				 </tr>
-				<tr>
-				  	<td> Phone Number</td>
-				   <td><input type ="text" value =${student.phone}></td>
+				   <td><form:input path ="email"/></td>
 				 </tr>
 				 <tr>
 				 	<td> Password</td>
-				   <td><input type ="text" value =${student.password}></td>
+				   <td><form:input path ="password"/></td>
 				   </tr>
 				<tr>
 				 <td><input type="submit" value="Submit"> </td>
