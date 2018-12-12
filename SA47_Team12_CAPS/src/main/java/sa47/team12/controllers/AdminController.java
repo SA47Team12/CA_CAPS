@@ -179,11 +179,20 @@ public ModelAndView editLecturer(@ModelAttribute @Valid Lecturer lecturer,Bindin
 		 final RedirectAttributes redirectAttributes)
 	{
 	System.out.println("lecturer"+lecturer.toString());
+	
+	Lecturer l = lService.findLecturer(lecturerid);
+	l.setAddress(lecturer.getAddress());
+	l.setEmail(lecturer.getEmail());
+	l.setFirstname(lecturer.getFirstname());
+	l.setLastname(lecturer.getLastname());
+	l.setPhone(lecturer.getPhone());
+	
 	if (result.hasErrors())
 		return new ModelAndView("LecturerFormEdit");
 	
 	ModelAndView mav = new ModelAndView("redirect:/admin/llist");
-	/*sService.updateStudent(student);*/
+	
+	lService.updateLecturer(l);
 	/*String message = "Student" + student.getStudentId() + " was successfully updated.";
 	redirectAttributes.addFlashAttribute("message", message);*/
 	return mav;

@@ -29,6 +29,7 @@ th, td {
 <c:if test="${fn:length(lecturers) gt 0}">
 	<table>
 		<tr>
+			<th>S.No.</th>
 			<th>ID</th>
 			<th>First name</th>
 			<th>Last name</th>
@@ -40,6 +41,7 @@ th, td {
 		
 		<c:forEach var="lecturer" items="${lecturers}" varStatus="status">
 		<tr>
+			<td>${status.index+1}</td>
 			<td>${lecturer.lecturerId}</td>
 			<td>${lecturer.firstname}</td>
 			<td>${lecturer.lastname}</td>

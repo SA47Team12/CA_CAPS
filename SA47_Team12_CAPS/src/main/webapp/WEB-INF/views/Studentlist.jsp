@@ -45,7 +45,7 @@ th, td {
 		
 		<c:forEach var="student" items="${students}" varStatus="status">
 		<tr>
-			<td>${status.index}</td>
+			<td>${status.index+1}</td>
 			<td>${student.studentId}</td>
 			<td>${student.firstname}</td>
 			<td>${student.lastname}</td>
