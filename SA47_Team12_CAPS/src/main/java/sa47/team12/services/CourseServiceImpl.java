@@ -25,4 +25,9 @@ public class CourseServiceImpl implements CourseService {
 	public ArrayList<Course> findAllCourse() {
 		return (ArrayList<Course>) cRepository.findAll();
 	}
+
+	@Override
+	public ArrayList<Course> listUntakeCourse(Integer stuID) {
+		return cRepository.listUntakeCourse(stuID);
+	}
 }

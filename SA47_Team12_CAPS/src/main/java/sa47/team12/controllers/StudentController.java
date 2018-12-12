@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import sa47.team12.model.Course;
 import sa47.team12.model.CourseStudent;
 import sa47.team12.model.Student;
+import sa47.team12.services.CourseService;
 import sa47.team12.services.CourseStudentService;
 import sa47.team12.services.StudentService;
 
@@ -21,6 +22,9 @@ import sa47.team12.services.StudentService;
 public class StudentController {
 	@Autowired
 	private CourseStudentService csService;
+	
+	@Autowired
+	private CourseService cService;
 	
 	@Autowired
 	private StudentService sService;
@@ -44,13 +48,13 @@ public class StudentController {
 		return mav;
 	}
 	//@PathVariable Integer stuID
-//	@RequestMapping(value = "/enroll", method = RequestMethod.GET)
-//	public ModelAndView EnrollCoursePage() {
-//		ModelAndView mav = new ModelAndView("student_enroll");
-//		ArrayList<Course> courses = csService.listUntakeCourse(3002);
-//		mav.addObject("courses", courses);
-//		return mav;
-//	}
+	@RequestMapping(value = "/enroll", method = RequestMethod.GET)
+	public ModelAndView EnrollCoursePage() {
+		ModelAndView mav = new ModelAndView("student_enroll");
+		ArrayList<Course> courses = cService.listUntakeCourse(3002);
+		mav.addObject("courses", courses);
+		return mav;
+	}
 	//@PathVariable Integer stuID
 	@RequestMapping(value = "/enroll_status", method = RequestMethod.GET)
 	public ModelAndView editCoursePage() {

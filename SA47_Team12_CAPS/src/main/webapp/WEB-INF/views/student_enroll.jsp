@@ -16,12 +16,12 @@
 		
 		</tr>
 		
-		<c:forEach var="coursestudent" items="${courses}" varStatus="status">
+		<c:forEach var="course" items="${courses}" varStatus="status">
 		<tr>
 			<td>${status.index}</td>
-			<td>${coursestudent.course.courseDetail.courseCode}</td>
-			<td>${coursestudent.course.courseDetail.name}</td>
-			<td>${coursestudent.course.courseDetail.credit}</td>
+			<td>${course.courseDetail.courseCode}</td>
+			<td>${course.courseDetail.name}</td>
+			<td>${course.courseDetail.credit}</td>
 				
 		</tr>
 		</c:forEach>
