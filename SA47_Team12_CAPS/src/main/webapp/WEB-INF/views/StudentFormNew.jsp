@@ -10,44 +10,44 @@
 <body>
 
 	<form:form method="POST" modelAttribute="student"
-		action="${pageContext.request.contextPath}/student/edit/${student.studentId}.html">
+		action="${pageContext.request.contextPath}/admin/create.html">
 		<center>
 			<table cellpadding=4 cellspacing=2 border=0>
 				<tr>
 					<td>Student ID</td>
-					<td type="text"></td>
+					<td><form:input path="studentId"/></td>
 				</tr>
 				<tr>
 					<td>First Name</td>
-					<td type="text"></td>
+					<td><form:input path="firstname"/></td>
 				</tr>
 				<tr>
 					<td>Last Name</td>
-					<td type="text"></td>
+					<td><form:input path="lastname"/></td>>
 				</tr>
 				<tr>
 					<td>Address</td>
-					<td type="text"></td>
+					<td><form:input path="address"/></td>
 				</tr>
 				<tr>
 					<td>Date of Birth</td>
-					<td type="text"></td>
+					<td><form:input path="dob"/></td>
 				</tr>
 				<tr>
 					<td>Gender</td>
-					<td type="text"></td>
+					<td><form:input path="gender"/></td>
 				</tr>
 				<tr>
 					<td>Email Id</td>
-					<td type="text"></td>
+					<td><form:input path="email"/></td>
 				</tr>
 				<tr>
 					<td>Phone Number</td>
-					<td type="text"></td>
+					<td><form:input path="phone"/></td>
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td type="text"></td>
+					<td><form:input path="password"/></td>
 				</tr>
 
 				<tr>
