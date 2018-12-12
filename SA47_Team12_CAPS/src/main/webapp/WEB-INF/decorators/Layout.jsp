@@ -32,6 +32,7 @@
 
 	<div id="Home" class="tabcontent">
 		<h3>Welcome ^_^</h3>
+		<%@include file="Home.jsp"%>
 	</div>
 
 	<div id="Admin" class="tabcontent">
