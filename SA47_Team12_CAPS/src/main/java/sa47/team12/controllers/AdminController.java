@@ -1,6 +1,8 @@
 package sa47.team12.controllers;
 
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +16,15 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import sa47.team12.exception.StudentNotFound;
+import sa47.team12.model.Course;
+import sa47.team12.model.CourseStudent;
+import sa47.team12.model.Lecturer;
 import sa47.team12.model.Student;
+import sa47.team12.services.CourseService;
+import sa47.team12.services.CourseStudentService;
+import sa47.team12.services.LecturerService;
 import sa47.team12.services.StudentService;
 import sa47.team12.validator.StudentValidator;
-import sa47.team12.model.Lecturer;
-import sa47.team12.services.LecturerService;
 
 
 
@@ -28,6 +34,10 @@ import sa47.team12.services.LecturerService;
 public class AdminController {
 @Autowired
 private StudentService sService;
+@Autowired
+private CourseStudentService csService;
+@Autowired
+private CourseService cService;
 @Autowired
 private StudentValidator sValidator;
 
@@ -50,11 +60,23 @@ return mav;
 @RequestMapping(value = "/create", method = RequestMethod.POST)
 public ModelAndView createNewStudent(@ModelAttribute @Valid Student student, BindingResult result,
 		final RedirectAttributes redirectAttributes){
-		/*if (result.hasErrors())
-			return new ModelAndView("StudentFormNew");*/
+		if (result.hasErrors())
+			return new ModelAndView("StudentFormNew");
 		ModelAndView mav = new ModelAndView();
-
-		//sService.createStudent(student);
+		
+		Student s = new Student();
+		s.setAddress(student.getAddress());
+		s.setEmail(student.getEmail());
+		s.setFirstname(student.getFirstname());
+		s.setLastname(student.getLastname());
+		s.setGender(student.getGender());
+		s.setPhone(student.getPhone());
+		s.setPassword(student.getPassword());
+		
+		
+		
+		/*s.setCourseStudents(cs);*/
+		sService.createStudent(s);
 		//String message = "New student " + student.getNric() + " was successfully created.";
 		mav.setViewName("redirect:/admin/list");
 		return mav;
@@ -81,15 +103,22 @@ public ModelAndView editStudentPage1(@PathVariable Integer id) {
 }
 
 @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-public ModelAndView editStudent(@ModelAttribute @Valid Student student, @PathVariable Integer id,
-		BindingResult result, final RedirectAttributes redirectAttributes)throws StudentNotFound
+public ModelAndView editStudent(@ModelAttribute @Valid Student student,BindingResult result, @PathVariable Integer id,
+		 final RedirectAttributes redirectAttributes)throws StudentNotFound
 	{
-	System.out.println("student"+student.toString());
+	Student s = sService.findStudent(id);
+	s.setAddress(student.getAddress());
+	s.setEmail(student.getEmail());
+	s.setFirstname(student.getFirstname());
+	s.setLastname(student.getLastname());
+	s.setGender(student.getGender());
+	s.setPhone(student.getPhone());
+	/*System.out.println("student"+student.toString());*/
 	/*if (result.hasErrors())
 		return new ModelAndView("StudentFormEdit");*/
 	
 	ModelAndView mav = new ModelAndView("redirect:/admin/list");
-	/*sService.updateStudent(student);*/
+	sService.updateStudent(s);
 	/*String message = "Student" + student.getStudentId() + " was successfully updated.";
 	redirectAttributes.addFlashAttribute("message", message);*/
 	return mav;
@@ -146,8 +175,8 @@ public ModelAndView editStudentPage(@PathVariable Integer lecturerid) {
 }
 
 @RequestMapping(value = "/ledit/{lecturerid}", method = RequestMethod.POST)
-public ModelAndView editLecturer(@ModelAttribute @Valid Lecturer lecturer, @PathVariable Integer lecturerid,
-		BindingResult result, final RedirectAttributes redirectAttributes)
+public ModelAndView editLecturer(@ModelAttribute @Valid Lecturer lecturer,BindingResult result, @PathVariable Integer lecturerid,
+		 final RedirectAttributes redirectAttributes)
 	{
 	System.out.println("lecturer"+lecturer.toString());
 	if (result.hasErrors())
@@ -168,4 +197,41 @@ public ModelAndView deleteLecturer(@PathVariable Integer lecturerid, final Redir
 	ModelAndView mav = new ModelAndView("redirect:/admin/llist");
 	return mav;
 }
+
+@RequestMapping(value = "/enrollment", method = RequestMethod.GET)
+public ModelAndView ListPendingPage() {
+ModelAndView mav = new ModelAndView("Enrollment");
+mav.addObject("students",csService.listAppliedCourse() );
+return mav;
+}
+
+@RequestMapping(value = "/accept/{id}", method = RequestMethod.GET)
+public ModelAndView approveStudent(@PathVariable Integer id, final RedirectAttributes redirectAttributes)
+		{
+	CourseStudent cs = csService.findCourseStudent(id);
+	cs.setEnrollmentStatus("accepted");
+	
+	Course c = cs.getCourse();
+	int cap = c.getCurrentEnrollment();
+	c.setCurrentEnrollment(cap+1);
+	
+	csService.updateRecord(cs);
+	cService.UpdateCourse(c);
+	
+	ModelAndView mav = new ModelAndView("redirect:/admin/enrollment");
+	return mav;
+}
+
+
+@RequestMapping(value = "/reject/{id}", method = RequestMethod.GET)
+public ModelAndView rejectStudent(@PathVariable Integer id, final RedirectAttributes redirectAttributes)
+		{
+	CourseStudent cs = csService.findCourseStudent(id);
+	cs.setEnrollmentStatus("rejected");
+	
+	csService.updateRecord(cs);
+	ModelAndView mav = new ModelAndView("redirect:/admin/enrollment");
+	return mav;
+}
+
 }
