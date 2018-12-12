@@ -72,7 +72,7 @@ public class StudentController {
 //		redirectAttributes.addFlashAttribute("message", message);
 //		return mav;
 //	}
-	
+	 
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
 	public ModelAndView StudentInfoPage(@PathVariable Integer stuID) {
 		ModelAndView mav = new ModelAndView("student_profile");

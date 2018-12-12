@@ -7,7 +7,7 @@ import sa47.team12.model.CourseStudent;
 
 public interface CourseStudentService {
 	
-
+ 
    ArrayList<CourseStudent> listGrade(Integer stuID);
 	
 	ArrayList<CourseStudent> listCurrentCourse(Integer stuID);
