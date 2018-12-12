@@ -37,6 +37,7 @@ CourseStudent findCourseStudent(Integer courseStudentId);
 	
 	void removeCS(CourseStudent cs);
 	
+	ArrayList<CourseStudent> listAppliedCourse();
 	
 	CourseStudent updateRecord(CourseStudent cs);
 
