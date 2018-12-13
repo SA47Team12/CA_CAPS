@@ -25,7 +25,7 @@ th, td {
 }
 </style>
 
-<a href="${pageContext.request.contextPath}/admin/create.html">AddStudent</a>
+<a href="${pageContext.request.contextPath}/admin/student/create.html">Add Student</a>
 <c:if test="${fn:length(students) gt 0}">
 	<table>
 		<tr>
@@ -55,8 +55,8 @@ th, td {
 			<td>${student.phone}</td>
 			<td>${student.address}</td>
 			<td>${student.enrollmentDate}</td>
-			<td><a href="${pageContext.request.contextPath}/admin/edit/${student.studentId}.html">Edit</a></td>
-			<td><a href="${pageContext.request.contextPath}/admin/delete/${student.studentId}.html">Delete</a></td>
+			<td><a href="${pageContext.request.contextPath}/admin/student/edit/${student.studentId}.html">Edit</a></td>
+			<td><a href="${pageContext.request.contextPath}/admin/student/delete/${student.studentId}.html">Delete</a></td>
 		</tr>
 		</c:forEach>
 	</table>

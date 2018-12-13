@@ -10,7 +10,7 @@
 <body>
 
 <form:form method="POST" modelAttribute="student"
-	action="${pageContext.request.contextPath}/admin/edit/${student.studentId}.html">
+	action="${pageContext.request.contextPath}/admin/student/edit/${student.studentId}.html">
 		<center>
 			<table cellpadding=4 cellspacing=2 border=0>
 				<tr>
