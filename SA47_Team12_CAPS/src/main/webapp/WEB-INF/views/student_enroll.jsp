@@ -18,7 +18,7 @@
 		
 		<c:forEach var="course" items="${courses}" varStatus="status">
 		<tr>
-			<td>${status.index}</td>
+			<td>${status.index+1}</td>
 			<td>${course.courseDetail.courseCode}</td>
 			<td>${course.courseDetail.name}</td>
 			<td>${course.courseDetail.credit}</td>
