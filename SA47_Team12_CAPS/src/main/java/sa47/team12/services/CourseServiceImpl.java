@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import sa47.team12.model.Course;
+import sa47.team12.model.CourseStudent;
 import sa47.team12.repo.CourseRepository;
 
 @Service
@@ -35,5 +36,9 @@ public class CourseServiceImpl implements CourseService {
 	public Course UpdateCourse(Course c) {
 		// TODO Auto-generated method stub
 		return cRepository.saveAndFlush(c);
+	}
+	
+	public Course findById(Integer id){
+		return cRepository.findById(id).get();
 	}
 }

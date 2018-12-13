@@ -39,5 +39,6 @@ CourseStudent findCourseStudent(Integer courseStudentId);
 	ArrayList<CourseStudent> listAppliedCourse();
 	
 	CourseStudent updateRecord(CourseStudent cs);
-
+	
+    CourseStudent enrollCourse(CourseStudent cs);
 }

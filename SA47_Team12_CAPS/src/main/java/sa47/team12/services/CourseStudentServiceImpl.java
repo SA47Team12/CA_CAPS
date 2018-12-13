@@ -118,4 +118,9 @@ public class CourseStudentServiceImpl implements CourseStudentService{
 	{
 		return csRepo.listAppliedCourse();
 	}
+	@Override
+	@Transactional
+	public CourseStudent enrollCourse(CourseStudent cs){
+		return csRepo.saveAndFlush(cs);
+	}
 }
