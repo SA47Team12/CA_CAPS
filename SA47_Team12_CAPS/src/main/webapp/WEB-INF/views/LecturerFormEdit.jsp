@@ -20,26 +20,32 @@
 				 <tr>
 				   <td> First Name</td>
 				   <td><form:input path="firstname"/></td>
+				   <td><form:errors path="firstname" cssStyle="color: red;"/></td>
 				 </tr>
 				 <tr>
 				   <td> Last Name</td>
 				   <td><form:input path="lastname"/></td>
+				   <td><form:errors path="lastname" cssStyle="color: red;"/></td>
 				 </tr>
 				<tr>
 				   <td> Address</td>
 				   <td><form:input path="address"/></td>
+				   <td><form:errors path="address" cssStyle="color: red;"/></td>
 				 </tr>
 				<tr>
 				  	<td> Email Id</td>
 				   <td><form:input path="email"/></td>
+				   <td><form:errors path="email" cssStyle="color: red;"/></td>
 				 </tr>
 				<tr>
 				  	<td> Phone Number</td>
 				   <td><form:input path="phone"/></td>
+				   <td><form:errors path="phone" cssStyle="color: red;"/></td>
 				 </tr>
 				 <tr>
 				 	<td> Password</td>
 				   <td><form:input path="password"/></td>
+				   <td><form:errors path="password" cssStyle="color: red;"/></td>
 				   </tr>
 				<tr>
 				 <td><input type="submit" value="Submit"> </td>

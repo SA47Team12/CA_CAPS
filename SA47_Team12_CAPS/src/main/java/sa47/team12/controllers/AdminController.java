@@ -31,6 +31,7 @@ import sa47.team12.services.CourseService;
 import sa47.team12.services.CourseStudentService;
 import sa47.team12.services.LecturerService;
 import sa47.team12.services.StudentService;
+import sa47.team12.validator.LecturerValidator;
 import sa47.team12.validator.StudentValidator;
 
 
@@ -53,19 +54,19 @@ private StudentValidator sValidator;
 private CourseDetailService cdService;
 
 @InitBinder("student")
-private void initLecturerBinder(WebDataBinder binder)
+private void initStudentBinder(WebDataBinder binder)
 {
 	binder.addValidators(sValidator);
 }
 
-/*@Autowired
+@Autowired
 private LecturerValidator lValidator;
 
 @InitBinder("lecturer")
 private void initLecturerBinder(WebDataBinder binder)
 {
 	binder.addValidators(lValidator);
-}*/
+}
 
 @Autowired
 private LecturerService lService;
@@ -137,6 +138,8 @@ public ModelAndView editStudentPage1(@PathVariable Integer id) {
 public ModelAndView editStudent(@ModelAttribute @Valid Student student,BindingResult result, @PathVariable Integer id,
 		 final RedirectAttributes redirectAttributes)throws StudentNotFound
 	{
+	if (result.hasErrors())
+	return new ModelAndView("StudentFormEdit");
 	Student s = sService.findStudent(id);
 	s.setAddress(student.getAddress());
 	s.setEmail(student.getEmail());
@@ -145,8 +148,7 @@ public ModelAndView editStudent(@ModelAttribute @Valid Student student,BindingRe
 	s.setGender(student.getGender());
 	s.setPhone(student.getPhone());
 	/*System.out.println("student"+student.toString());*/
-	/*if (result.hasErrors())
-		return new ModelAndView("StudentFormEdit");*/
+	
 	
 	ModelAndView mav = new ModelAndView("redirect:/admin/student/list");
 	sService.updateStudent(s);
@@ -176,7 +178,7 @@ return mav;
 public ModelAndView createNewLecturer(@ModelAttribute @Valid Lecturer lecturer, BindingResult result,
 		final RedirectAttributes redirectAttributes){
 		if (result.hasErrors())
-			return new ModelAndView("StudentFormNew");
+			return new ModelAndView("LecturerFormNew");
 	
 	
 		ArrayList<Lecturer> lect = lService.findAllLecturers();
@@ -199,9 +201,6 @@ public ModelAndView createNewLecturer(@ModelAttribute @Valid Lecturer lecturer, 
 		//String message = "New student " + student.getNric() + " was successfully created.";
 		mav.setViewName("redirect:/admin/lecturer/list");
 		return mav;
-//	sService.updateStudent(student);
-//	ModelAndView mav = new ModelAndView("redirect:/admin/list");
-//	return mav;
 }
  
 
@@ -226,17 +225,14 @@ public ModelAndView editLecturer(@ModelAttribute @Valid Lecturer lecturer,Bindin
 		 final RedirectAttributes redirectAttributes)
 	{
 	/*System.out.println("lecturer"+lecturer.toString());*/
-	
+	if (result.hasErrors())
+		return new ModelAndView("LecturerFormEdit");
 	Lecturer l = lService.findLecturer(lecturerid);
 	l.setAddress(lecturer.getAddress());
 	l.setEmail(lecturer.getEmail());
 	l.setFirstname(lecturer.getFirstname());
 	l.setLastname(lecturer.getLastname());
 	l.setPhone(lecturer.getPhone());
-	
-	
-	if (result.hasErrors())
-		return new ModelAndView("LecturerFormEdit");
 	
 	ModelAndView mav = new ModelAndView("redirect:/admin/lecturer/list");
 	lService.updateLecturer(l);

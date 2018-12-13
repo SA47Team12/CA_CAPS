@@ -149,9 +149,5 @@ public class Student implements Serializable {
 		return courseStudent;
 	}
 
-	public String getstudentId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 }
