@@ -1,5 +1,7 @@
 package sa47.team12.validator;
 
+//import javax.validation.ConstraintValidatorContext;
+
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -24,10 +26,16 @@ public class StudentValidator implements org.springframework.validation.Validato
 	public void validate(Object target, Errors errors) {
 		// TODO Auto-generated method stub
 		Student s = (Student) target;
-		ValidationUtils.rejectIfEmpty(errors, "studentId", "Student ID cannot be empty");
-		ValidationUtils.rejectIfEmpty(errors, "firstname", "Name cannot be empty");
-	    System.out.println(s.toString());
+		ValidationUtils.rejectIfEmpty(errors, "email", "email cannot be empty");
+		ValidationUtils.rejectIfEmpty(errors, "phone", "phone cannot be empty");
+		ValidationUtils.rejectIfEmpty(errors, "address", "Address cannot be empty");
+		System.out.println(s.toString());
 
 	}
+	
+//	public boolean isValid(String contactField, ConstraintValidatorContext cxt) {
+//        return contactField != null && contactField.matches("[0-9]+")
+//          && (contactField.length() > 7) && (contactField.length() < 9);
+//    }
 
 }

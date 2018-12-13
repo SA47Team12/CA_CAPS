@@ -8,6 +8,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,7 @@ import sa47.team12.model.Student;
 import sa47.team12.services.CourseService;
 import sa47.team12.services.CourseStudentService;
 import sa47.team12.services.StudentService;
+import sa47.team12.validator.StudentValidator;
  
 @Controller
 @RequestMapping(value = "/student")
@@ -34,6 +37,14 @@ public class StudentController {
 	
 	@Autowired
 	private StudentService sService;
+	
+	@Autowired
+	private StudentValidator sValidator;
+	
+	@InitBinder("student")
+	private void initUserBinder(WebDataBinder binder) {
+		binder.addValidators(sValidator);
+	}
 	
 	//@PathVariable Integer stuID
 	@RequestMapping(value = "/grade", method = RequestMethod.GET)
@@ -126,7 +137,7 @@ public class StudentController {
 		return mav;
 	}
 	
-		
+	//@PathVariable Integer stuID
 	@RequestMapping(value = "/profile/edit", method = RequestMethod.POST)
 	public ModelAndView EditStudentInfo(@ModelAttribute @Valid Student student, BindingResult result, 
 	final RedirectAttributes redirectAttributes)throws GradeException  {
@@ -140,41 +151,7 @@ public class StudentController {
 		sService.updateStudent(student);
 		redirectAttributes.addFlashAttribute("message", message);
 		return mav;
-//		Integer csId=student.getStudentId();
-//	
-//		Float grade1=coursestudents.getGrade();
-//
-//		CourseStudent courseStudent = cstuService.findCourseStudent(csId);
-//	
-//		courseStudent.setGrade(grade1);
-//	
-//		cstuService.changeCourseStudent(courseStudent);
-//		String message = "The user " + coursestudents.getCourseStudentId() + " was successfully deleted.";
-//	
-//		redirectAttributes.addFlashAttribute("message", message);
-//		return mav;
-//		
-//		
-//		
-//		
-//		
-//		
-//		
-//		//int id = student.getStudentId();
-//		Student s = sService.findStudent(3004);
-//		System.out.println(s.toString());
-//		student.setDob(Calendar.getInstance().getTime());
-//		student.setStudentId(3004);
-//        student.setCourseStudents(s.getCourseStudents());
-//        student.setEnrollmentDate(s.getEnrollmentDate());
-////		SimpleDateFormat ft = 
-////			      new SimpleDateFormat ("yyyy-MM-dd");
-////      s.setEnrollmentDate(ft.format(new Date()));
-////		Date now = new Date(2018,12,12);
-////		s.setEnrollmentDate(now);
-//        sService.updateStudent(student);
-//        ModelAndView mav = new ModelAndView();
-//		return mav;
+
 	}
 
 
