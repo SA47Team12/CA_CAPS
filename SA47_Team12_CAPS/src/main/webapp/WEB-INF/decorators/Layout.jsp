@@ -210,7 +210,7 @@
 	<div id="Student" class="tabcontent">
 		<table class="sidebar">
 			<tr>
-				<td class="sidebar-links">
+				<td class="sidebar-links"> 
 					<ul>
 						<li><a href="/SA47_Team12_CAPS/student/grade">Grades and GPA</a></li>
 						<br />
