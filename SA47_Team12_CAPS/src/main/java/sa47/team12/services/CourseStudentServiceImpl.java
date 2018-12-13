@@ -52,14 +52,7 @@ public class CourseStudentServiceImpl implements CourseStudentService{
 		csRepo.saveAndFlush(courseStudent);
 	}
 
-	
-	
-//	@Override
-//	@Transactional
-//    public ArrayList<CourseStudent> findAll(){
-//    	return (ArrayList<CourseStudent>)csRepo.findAll();
-//    }
-	
+
 	@Override
 	@Transactional
     public ArrayList<CourseStudent> listGrade(Integer stuID){
@@ -82,12 +75,7 @@ public class CourseStudentServiceImpl implements CourseStudentService{
 		return csRepo.listRejectCourse(stuID);
 	}
 	
-//	@Override
-//	@Transactional
-//	public ArrayList<Course> listUntakeCourse(Integer stuID){
-//		return cRepo.listUntakeCourses(stuID);
-//	}
-  
+ 
 	@Override
 	@Transactional
 	public String calculateGPA(Integer stuID){
@@ -105,10 +93,16 @@ public class CourseStudentServiceImpl implements CourseStudentService{
 	public CourseStudent findCSById(Integer id){
 		return csRepo.findById(id).get();
 	}
+//	@Override
+//	@Transactional
+//	public void removeCS(CourseStudent cs){
+//		csRepo.delete(cs);
+//	}
+	
 	@Override
 	@Transactional
-	public void removeCS(CourseStudent cs){
-		csRepo.delete(cs);
+	public void deleteCS(Integer ID){
+		csRepo.Deletecs(ID);
 	}
 	
 	@Override

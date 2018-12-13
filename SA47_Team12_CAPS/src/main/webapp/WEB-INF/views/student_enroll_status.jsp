@@ -13,7 +13,7 @@
 			<th>Code</th>
 			<th>Course Name</th>
 			<th>Credit</th>
-			<th>Cancel</th>
+			<th>Cancel Application</th>
 			
 		</tr>
 		
@@ -23,7 +23,7 @@
 			<td>${coursestudent.course.courseDetail.courseCode}</td>
 			<td>${coursestudent.course.courseDetail.name}</td>
 			<td>${coursestudent.course.courseDetail.credit}</td>
-			<td align="center"><a href="${pageContext.request.contextPath}/student/enroll_status/delete/${coursestudent.courseStudentId}">Cancel</a></td>		
+			<td align="center"><a href="${pageContext.request.contextPath}/student/enroll_status/delete/${coursestudent.courseStudentId}.html">Cancel</a></td>		
 		</tr>
 		</c:forEach>
 		</table>

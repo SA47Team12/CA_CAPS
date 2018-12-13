@@ -16,8 +16,6 @@ public interface CourseStudentService {
 	
 	ArrayList<CourseStudent> listRejectCourse(Integer stuID);
 	
-	//ArrayList<Course> listUntakeCourse(Integer stuID);
-
 	String calculateGPA(Integer stuID);
 	
 	CourseStudent findCSById(Integer csID);
@@ -35,7 +33,8 @@ CourseStudent findCourseStudent(Integer courseStudentId);
 	
 	void changeCourseStudent(CourseStudent courseStudent);
 	
-	void removeCS(CourseStudent cs);
+	//void removeCS(CourseStudent cs);
+	void deleteCS(Integer ID);
 	
 	ArrayList<CourseStudent> listAppliedCourse();
 	
