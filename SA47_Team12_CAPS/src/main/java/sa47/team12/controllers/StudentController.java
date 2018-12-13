@@ -55,6 +55,37 @@ public class StudentController {
 		mav.addObject("courses", courses);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/enroll/create", method = RequestMethod.GET)
+	public ModelAndView EnrollCourse() {
+		ModelAndView mav = new ModelAndView();
+		return mav;
+	}
+	
+	//@PathVariable Integer stuID
+	@RequestMapping(value = "/enroll/create/{id}", method = RequestMethod.POST)
+	public ModelAndView EnrollCourse(@PathVariable Integer id
+//			final RedirectAttributes redirectAttributes
+			){
+		
+	    Course c = cService.findById(id);
+	    Student s = sService.findStudent(3002);
+		CourseStudent cs = new CourseStudent();
+	    cs.setCourse(c);
+	    cs.setCourseStudentId(7777);
+	    cs.setEnrollmentStatus("pending");
+	    cs.setGrade(-1);
+	    cs.setStudent(s);
+		csService.enrollCourse(cs);
+		ModelAndView mav = new ModelAndView();
+//		String message = "The course application " + cs.getCourse().getCourseDetail().getName() + " was successfully deleted.";
+//
+//		redirectAttributes.addFlashAttribute("message", message);
+		return mav;
+	}
+
+	
+	
 	//@PathVariable Integer stuID
 	@RequestMapping(value = "/enroll_status", method = RequestMethod.GET)
 	public ModelAndView editCoursePage() {
@@ -87,6 +118,25 @@ public class StudentController {
 		return mav;
 	}
 	
-	
+	@RequestMapping(value = "/profile/edit", method = RequestMethod.POST)
+	public ModelAndView EditStudentInfo(@ModelAttribute Student student) {
+		//int id = student.getStudentId();
+		Student s = sService.findStudent(3004);
+		System.out.println(s.toString());
+		student.setDob(Calendar.getInstance().getTime());
+		student.setStudentId(3004);
+        student.setCourseStudents(s.getCourseStudents());
+        student.setEnrollmentDate(s.getEnrollmentDate());
+//		SimpleDateFormat ft = 
+//			      new SimpleDateFormat ("yyyy-MM-dd");
+//      s.setEnrollmentDate(ft.format(new Date()));
+//		Date now = new Date(2018,12,12);
+//		s.setEnrollmentDate(now);
+        sService.updateStudent(student);
+        ModelAndView mav = new ModelAndView();
+		return mav;
+	}
+
+
 
 }
