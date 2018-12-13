@@ -4,7 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <html>
-
 <a>Pending Enrollment</a>
 <c:if test="${fn:length(pcourses) gt 0}">
 	<table  class="table table-bordered">
@@ -27,11 +26,11 @@
 		</tr>
 		</c:forEach>
 		</table>
+		</c:if>
 
-</c:if>
 <a>Rejected Courses</a>
 <c:if test="${fn:length(rcourses) gt 0}">
-	<table>
+	<table  class="table table-bordered">
 		<tr>
 			<th>S. No.</th>
 			<th>Code</th>
@@ -52,4 +51,5 @@
 		</table>
 
 </c:if>
+
 </html>
