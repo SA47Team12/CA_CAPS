@@ -392,5 +392,54 @@ public ModelAndView createNewCourse(@ModelAttribute @Valid Course course, Bindin
 
 		}
 	
+		//course edit
+				@RequestMapping(value = "/courselist", method = RequestMethod.GET)
+				public ModelAndView listCoursePage() {
+				ModelAndView mav = new ModelAndView("CourselistAdmin");
+				mav.addObject("course", cService.findAllCourse());
+				return mav;
+				}
+
+
+				@RequestMapping(value = "/cedit/{courseid}", method = RequestMethod.GET)
+				public ModelAndView editCoursePage(@PathVariable Integer courseid) {
+					ModelAndView mav = new ModelAndView("CourseFormEdit");
+					mav.addObject("course", cService.findById(courseid));
+					return mav;
+					
+				}
+
+
+				@RequestMapping(value = "/cedit/{courseid}", method = RequestMethod.POST)
+				public ModelAndView editCourse(@ModelAttribute("Course") @Valid Course course,BindingResult result, @PathVariable Integer courseid,
+						 final RedirectAttributes redirectAttributes) 
+					{
+//					System.out.println("course"+course.toString());
+					
+					Course c = cService.findById(courseid);
+					c.setStartDate(course.getStartDate());
+					c.setCapacity(course.getCapacity());
+					c.setCurrentEnrollment(course.getCurrentEnrollment());
+					
+					
+//					if (result.hasErrors())
+//						return new ModelAndView("CourseFormEdit");
+					
+					ModelAndView mav = new ModelAndView("redirect:/admin/courselist");
+					
+					cService.UpdateCourse(c);
+					return mav;
+				}
+
+
+				@RequestMapping(value = "/cdelete/{courseid}", method = RequestMethod.GET)
+				public ModelAndView deleteCourse(@PathVariable Integer courseid, final RedirectAttributes redirectAttributes)
+						{
+					Course course = cService.findById(courseid);
+					cService.removeCourse(course);
+					
+					ModelAndView mav = new ModelAndView("redirect:/admin/courselist");
+					return mav;
+				}
 
 }

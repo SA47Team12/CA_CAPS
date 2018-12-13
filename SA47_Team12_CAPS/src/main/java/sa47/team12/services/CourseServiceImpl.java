@@ -51,4 +51,9 @@ public class CourseServiceImpl implements CourseService {
 		return cRepository.saveAndFlush(c);
 	}
 
+	@Override
+	public void removeCourse(Course c) {
+		// TODO Auto-generated method stub
+		cRepository.delete(c);
+	}
 }
