@@ -41,6 +41,10 @@ private CourseService cService;
 @Autowired
 private StudentValidator sValidator;
 
+
+@Autowired
+private CourseDetailService cdService;
+
 @InitBinder("student")
 private void initLecturerBinder(WebDataBinder binder)
 {
@@ -278,5 +282,69 @@ public ModelAndView rejectStudent(@PathVariable Integer id, final RedirectAttrib
 	ModelAndView mav = new ModelAndView("redirect:/admin/enrollment");
 	return mav;
 }
+
+//Create Course Start
+
+
+@RequestMapping(value = "/listcoursedetail", method = RequestMethod.GET)
+public ModelAndView ListCourseDetailPage() {
+ModelAndView mav = new ModelAndView("ListCourseDetail");
+mav.addObject("coursedetails", cdService.findAllCourseDetail());
+return mav;
+}
+
+
+
+@RequestMapping(value = "/createcourse/{id}", method = RequestMethod.GET)
+public ModelAndView newCoursePage(@PathVariable String id) {
+ModelAndView mav = new ModelAndView("CourseFormNew");
+Course c=new Course();
+CourseDetail cd= cdService.findCourseDetail(Integer.parseInt(id));
+c.setCourseDetail(cd);
+mav.addObject("course",c);
+return mav;
+}
+
+@RequestMapping(value = "/createcourse", method = RequestMethod.POST)
+public ModelAndView createNewCourse(@ModelAttribute @Valid Course course, BindingResult result,
+		final RedirectAttributes redirectAttributes){
+		if (result.hasErrors())
+			return new ModelAndView("CourseFormNew");
+		ModelAndView mav = new ModelAndView();
+		
+		Integer courseCode=course.getCourseDetail().getCourseCode();
+		
+		CourseDetail cd= cdService.findCourseDetail(courseCode);
+		
+		 
+		
+		Course c = new Course();
+		
+		ArrayList<Course> co=cService.findAllCourse();
+		int size=co.size();
+		Integer id1=(Integer)co.get(size-1).getCourseId();
+		id1=id1+1;
+		
+		
+		
+		Integer id=5120;
+		c.setCourseId(id1);
+		c.setCapacity(course.getCapacity());
+		//c.setStartDate(date);
+		c.setCurrentEnrollment(30);
+		c.setCourseDetail(cd);
+		
+		
+		cService.createCourse(c);
+		//String message = "New student " + student.getNric() + " was successfully created.";
+		mav.setViewName("redirect:/admin/listcoursedetail");
+		return mav;
+//	sService.updateStudent(student);
+//	ModelAndView mav = new ModelAndView("redirect:/admin/list");
+//	return mav;
+}
+
+//Create Course Finish
+
 
 }
