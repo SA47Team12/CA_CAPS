@@ -24,8 +24,8 @@ public class StudentValidator implements org.springframework.validation.Validato
 	public void validate(Object target, Errors errors) {
 		// TODO Auto-generated method stub
 		Student s = (Student) target;
-		ValidationUtils.rejectIfEmpty(errors, "studentId", "Student ID cannot be empty");
-		ValidationUtils.rejectIfEmpty(errors, "firstname", "Name cannot be empty");
+		ValidationUtils.rejectIfEmpty(errors, "firstname", "The Employee Id field cant be empty.");
+		ValidationUtils.rejectIfEmpty(errors, "lastname", "error.employee.employeeid.empty");
 	    System.out.println(s.toString());
 
 	}
