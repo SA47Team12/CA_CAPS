@@ -25,7 +25,7 @@ th, td {
 }
 </style>
 
-<a href="${pageContext.request.contextPath}/admin/lcreate.html">AddStudent</a>
+<a href="${pageContext.request.contextPath}/admin/lecturer/create.html">Add Lecturer</a>
 <c:if test="${fn:length(lecturers) gt 0}">
 	<table>
 		<tr>
@@ -49,8 +49,8 @@ th, td {
 			<td>${lecturer.email}</td>
 			<td>${lecturer.phone}</td>
 			<td>${lecturer.address}</td>
-			<td><a href="${pageContext.request.contextPath}/admin/ledit/${lecturer.lecturerId}.html">Edit</a></td>
-			<td><a href="${pageContext.request.contextPath}/admin/ldelete/${lecturer.lecturerId}.html">Delete</a></td>
+			<td><a href="${pageContext.request.contextPath}/admin/lecturer/edit/${lecturer.lecturerId}.html">Edit</a></td>
+			<td><a href="${pageContext.request.contextPath}/admin/lecturer/delete/${lecturer.lecturerId}.html">Delete</a></td>
 		</tr>
 		</c:forEach>
 	</table>
