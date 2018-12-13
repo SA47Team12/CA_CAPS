@@ -3,8 +3,11 @@ package sa47.team12.controllers;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import sa47.team12.exception.GradeException;
 import sa47.team12.model.Course;
 import sa47.team12.model.CourseStudent;
 import sa47.team12.model.Student;
@@ -111,32 +115,66 @@ public class StudentController {
 		redirectAttributes.addFlashAttribute("message", message);
 		return mav;
 	}
-	 
+	//@PathVariable Integer stuID
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
-	public ModelAndView StudentInfoPage(@PathVariable Integer stuID) {
+	public ModelAndView StudentInfoPage() {
 		ModelAndView mav = new ModelAndView("student_profile");
-		Student student = sService.findStudent(stuID);
+		Student student = sService.findStudent(3004);
 		mav.addObject("student", student);
+		ArrayList<Student> stList = sService.findAllStudent();
+		mav.addObject("stlist", stList);
 		return mav;
 	}
 	
+		
 	@RequestMapping(value = "/profile/edit", method = RequestMethod.POST)
-	public ModelAndView EditStudentInfo(@ModelAttribute Student student) {
-		//int id = student.getStudentId();
-		Student s = sService.findStudent(3004);
-		System.out.println(s.toString());
-		student.setDob(Calendar.getInstance().getTime());
-		student.setStudentId(3004);
-        student.setCourseStudents(s.getCourseStudents());
-        student.setEnrollmentDate(s.getEnrollmentDate());
-//		SimpleDateFormat ft = 
-//			      new SimpleDateFormat ("yyyy-MM-dd");
-//      s.setEnrollmentDate(ft.format(new Date()));
-//		Date now = new Date(2018,12,12);
-//		s.setEnrollmentDate(now);
-        sService.updateStudent(student);
-        ModelAndView mav = new ModelAndView();
+	public ModelAndView EditStudentInfo(@ModelAttribute @Valid Student student, BindingResult result, 
+	final RedirectAttributes redirectAttributes)throws GradeException  {
+	
+		if (result.hasErrors())
+			return new ModelAndView("student_profile");
+		
+		ModelAndView mav = new ModelAndView("redirect:/student/profile");
+		String message = "User was successfully updated.";
+	
+		sService.updateStudent(student);
+		redirectAttributes.addFlashAttribute("message", message);
 		return mav;
+//		Integer csId=student.getStudentId();
+//	
+//		Float grade1=coursestudents.getGrade();
+//
+//		CourseStudent courseStudent = cstuService.findCourseStudent(csId);
+//	
+//		courseStudent.setGrade(grade1);
+//	
+//		cstuService.changeCourseStudent(courseStudent);
+//		String message = "The user " + coursestudents.getCourseStudentId() + " was successfully deleted.";
+//	
+//		redirectAttributes.addFlashAttribute("message", message);
+//		return mav;
+//		
+//		
+//		
+//		
+//		
+//		
+//		
+//		//int id = student.getStudentId();
+//		Student s = sService.findStudent(3004);
+//		System.out.println(s.toString());
+//		student.setDob(Calendar.getInstance().getTime());
+//		student.setStudentId(3004);
+//        student.setCourseStudents(s.getCourseStudents());
+//        student.setEnrollmentDate(s.getEnrollmentDate());
+////		SimpleDateFormat ft = 
+////			      new SimpleDateFormat ("yyyy-MM-dd");
+////      s.setEnrollmentDate(ft.format(new Date()));
+////		Date now = new Date(2018,12,12);
+////		s.setEnrollmentDate(now);
+//        sService.updateStudent(student);
+//        ModelAndView mav = new ModelAndView();
+//		return mav;
 	}
 
 

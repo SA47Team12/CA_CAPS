@@ -25,12 +25,16 @@
 		<center>
 			<table cellpadding=4 cellspacing=2 border=0>
 				 <tr>
+				   <td> Student ID</td>
+				   <td><form:input path ="studentId" readonly="true"/></td>
+				 </tr>
+				 <tr>
 				   <td> First Name</td>
-				   <td><form:input path ="firstname"/></td>
+				   <td><form:input path ="firstname" readonly="true"/></td>
 				 </tr>
 				 <tr>
 				   <td> Last Name</td>
-				   <td><form:input path ="lastname" /></td>
+				   <td><form:input path ="lastname" readonly="true" /></td>
 				 </tr>
 				<tr>
 				   <td> Address</td>
@@ -38,11 +42,11 @@
 				 </tr>
 				<tr>
 				  	<td> Date of Birth</td>
-				   <td><form:input size="16" path ="dob" type="date" id="datepicker1"/></td>
+				   <td><form:input path ="dob" readonly="true"/></td>
 				 </tr>
 				 <tr>
 				  	<td> Gender</td>
-				   <td><form:input path ="gender"/></td>
+				   <td><form:input path ="gender" readonly="true"/></td>
 				 </tr>
 				<tr>
 				  	<td> Email Id</td>
@@ -53,8 +57,8 @@
 				   <td><form:input path ="phone"/></td>
 				 </tr>
 				 <tr>
-				 <td><input type="submit" value="Submit"> </td>
-				 <td><input type="reset" value="Reset"></td>
+				 <td><input type="submit" value="Update"> </td>
+				<%--  <td><input type="reset" value="Reset"></td>--%>
 				 </tr>
 		</table>
 		</center>
