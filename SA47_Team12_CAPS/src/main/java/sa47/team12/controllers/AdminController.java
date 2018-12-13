@@ -1,11 +1,14 @@
 package sa47.team12.controllers;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -74,6 +77,15 @@ private void initLecturerBinder(WebDataBinder binder)
 private void initAdministratorBinder(WebDataBinder binder)
 {
 	binder.addValidators(aValidator);
+}
+
+@InitBinder
+
+public void initBinder(WebDataBinder binder) {
+
+    CustomDateEditor editor = new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true);
+
+    binder.registerCustomEditor(Date.class, editor);
 }
 @Autowired
 private LecturerService lService;
@@ -310,6 +322,13 @@ public ModelAndView newCoursePage(@PathVariable String id) {
 ModelAndView mav = new ModelAndView("CourseFormNew");
 Course c=new Course();
 CourseDetail cd= cdService.findCourseDetail(Integer.parseInt(id));
+
+ArrayList<Course> co=cService.findAllCourse();
+int size=co.size();
+Integer id1=(Integer)co.get(size-1).getCourseId();
+id1=id1+1;
+
+c.setCourseId(id1);
 c.setCourseDetail(cd);
 mav.addObject("course",c);
 return mav;
@@ -337,11 +356,11 @@ public ModelAndView createNewCourse(@ModelAttribute @Valid Course course, Bindin
 		
 		
 		
-		Integer id=5120;
+		//Integer id=5120;
 		c.setCourseId(id1);
 		c.setCapacity(course.getCapacity());
-		//c.setStartDate(date);
-		c.setCurrentEnrollment(30);
+		c.setStartDate(course.getStartDate());
+		//c.setCurrentEnrollment(30);
 		c.setCourseDetail(cd);
 		
 		
@@ -353,8 +372,6 @@ public ModelAndView createNewCourse(@ModelAttribute @Valid Course course, Bindin
 //	ModelAndView mav = new ModelAndView("redirect:/admin/list");
 //	return mav;
 }
-
-//Create Course Finish
 
 //@PathVariable Integer ID
 		@RequestMapping(value = "/profile", method = RequestMethod.GET)
