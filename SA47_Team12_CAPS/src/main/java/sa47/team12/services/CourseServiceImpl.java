@@ -38,6 +38,8 @@ public class CourseServiceImpl implements CourseService {
 		return cRepository.saveAndFlush(c);
 	}
 	
+	@Override
+	@Transactional
 	public Course findById(Integer id){
 		return cRepository.findById(id).get();
 	}
