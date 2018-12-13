@@ -33,6 +33,9 @@ public class CourseDetailServiceImpl implements CourseDetailService {
 		return (CourseDetail)cdRepository.findById(courseDetailId).get();
 	}
 	
+	public CourseDetail createCourseDetails(CourseDetail courseDetail) {
+		return (CourseDetail)cdRepository.saveAndFlush(courseDetail);
+	}
 	
 	
 }

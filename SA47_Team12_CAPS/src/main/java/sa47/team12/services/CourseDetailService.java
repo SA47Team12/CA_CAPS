@@ -12,4 +12,6 @@ public interface CourseDetailService {
 	ArrayList<Integer> findAllCourseDetailCode();
 	
 	CourseDetail findCourseDetail(Integer courseDetailId);
+	
+	CourseDetail createCourseDetails(CourseDetail courseDetail);
 }
