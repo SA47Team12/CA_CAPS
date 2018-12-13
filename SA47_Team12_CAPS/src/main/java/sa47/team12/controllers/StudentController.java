@@ -44,7 +44,7 @@ public class StudentController {
 	@InitBinder("student")
 	private void initUserBinder(WebDataBinder binder) {
 		binder.addValidators(sValidator);
-	}
+	} 
 	
 	//@PathVariable Integer stuID
 	@RequestMapping(value = "/grade", method = RequestMethod.GET)

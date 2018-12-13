@@ -42,7 +42,7 @@
 				   <td><form:input path ="dob" readonly="true"/></td>
 				 </tr>
 				 <tr>
-				  	<td> Gender</td>
+				  	<td> Gender</td> 
 				   <td><form:input path ="gender" readonly="true"/></td>
 				 </tr>
 				<tr>

@@ -30,7 +30,6 @@ public class StudentValidator implements org.springframework.validation.Validato
 		ValidationUtils.rejectIfEmpty(errors, "phone", "phone cannot be empty");
 		ValidationUtils.rejectIfEmpty(errors, "address", "Address cannot be empty");
 		System.out.println(s.toString());
-
 	}
 	
 //	public boolean isValid(String contactField, ConstraintValidatorContext cxt) {
