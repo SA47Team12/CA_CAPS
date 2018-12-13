@@ -183,13 +183,13 @@
 				<td class="sidebar-links">
 
 					<ul>
-						<li><a href="#1">Manage Students</a></li>
+						<li><a href="/SA47_Team12_CAPS/admin/list">Manage Students</a></li>
 						<br />
-						<li><a href="#2">Manage Lecturer</a></li>
+						<li><a href="/SA47_Team12_CAPS/admin/llist">Manage Lecturer</a></li>
 						<br />
-						<li><a href="#3">Manage Course</a></li>
+						<li><a href="/SA47_Team12_CAPS/admin/llist">Manage Course</a></li>
 						<br />
-						<li><a href="#4">Manage Enrollment</a></li>
+						<li><a href="/SA47_Team12_CAPS/admin/enrollment">Manage Enrollment</a></li>
 					</ul>
 
 				</td>
@@ -212,11 +212,15 @@
 			<tr>
 				<td class="sidebar-links">
 					<ul>
-						<li><a href="#1">Grades and GPA</a></li>
+						<li><a href="/SA47_Team12_CAPS/student/grade">Grades and GPA</a></li>
 						<br />
-						<li><a href="#2">View Courses</a></li>
+						<li><a href="/SA47_Team12_CAPS/student/enroll">View and Enroll Courses</a></li>
 						<br />
-						<li><a href="#3">Enroll for a Course</a></li>
+						<li><a href="/SA47_Team12_CAPS/student/currentcourses">Ongoing Courses</a></li>
+						<br />
+						<li><a href="/SA47_Team12_CAPS/student/enroll_status">Courses Application Status</a></li>
+						<br />
+						<li><a href="/SA47_Team12_CAPS/student/profile">Manage Student Profile</a></li>
 					</ul>
 				</td>
 				<td><%@include file="Menu.jsp"%>
