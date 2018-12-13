@@ -25,7 +25,7 @@ public interface CourseStudentService {
 	
 	ArrayList<CourseStudent> findAll();
 
-	
+	 
 CourseStudent findCourseStudent(Integer courseStudentId);
 	
 	

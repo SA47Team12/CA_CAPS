@@ -104,7 +104,7 @@ public class CourseStudentServiceImpl implements CourseStudentService{
 	public void deleteCS(Integer ID){
 		csRepo.Deletecs(ID);
 	}
-	
+	 
 	@Override
 	@Transactional
 	public CourseStudent updateRecord(CourseStudent cs)

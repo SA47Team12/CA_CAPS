@@ -18,7 +18,7 @@ import sa47.team12.model.Student;
 import sa47.team12.services.CourseService;
 import sa47.team12.services.CourseStudentService;
 import sa47.team12.services.StudentService;
-
+ 
 @Controller
 @RequestMapping(value = "/student")
 public class StudentController {
