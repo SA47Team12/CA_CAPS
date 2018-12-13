@@ -31,6 +31,7 @@ import sa47.team12.services.CourseService;
 import sa47.team12.services.CourseStudentService;
 import sa47.team12.services.LecturerService;
 import sa47.team12.services.StudentService;
+import sa47.team12.validator.AdminValidator;
 import sa47.team12.validator.LecturerValidator;
 import sa47.team12.validator.StudentValidator;
 
@@ -48,7 +49,8 @@ private CourseService cService;
 private AdminService aService;
 @Autowired
 private StudentValidator sValidator;
-
+@Autowired
+private AdminValidator aValidator;
 
 @Autowired
 private CourseDetailService cdService;
@@ -68,6 +70,11 @@ private void initLecturerBinder(WebDataBinder binder)
 	binder.addValidators(lValidator);
 }
 
+@InitBinder("administrator")
+private void initAdministratorBinder(WebDataBinder binder)
+{
+	binder.addValidators(aValidator);
+}
 @Autowired
 private LecturerService lService;
 
