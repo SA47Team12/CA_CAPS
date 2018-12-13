@@ -19,9 +19,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import sa47.team12.exception.StudentNotFound;
 import sa47.team12.model.Course;
+import sa47.team12.model.CourseDetail;
 import sa47.team12.model.CourseStudent;
 import sa47.team12.model.Lecturer;
 import sa47.team12.model.Student;
+import sa47.team12.services.CourseDetailService;
 import sa47.team12.services.CourseService;
 import sa47.team12.services.CourseStudentService;
 import sa47.team12.services.LecturerService;

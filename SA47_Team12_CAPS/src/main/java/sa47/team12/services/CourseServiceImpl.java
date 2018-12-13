@@ -41,4 +41,12 @@ public class CourseServiceImpl implements CourseService {
 	public Course findById(Integer id){
 		return cRepository.findById(id).get();
 	}
+	
+	@Override
+	@Transactional
+	public Course createCourse(Course c)
+	{
+		return cRepository.saveAndFlush(c);
+	}
+
 }

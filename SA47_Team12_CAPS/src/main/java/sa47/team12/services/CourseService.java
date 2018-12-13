@@ -10,4 +10,6 @@ public interface CourseService {
 	ArrayList<Course> listUntakeCourse(Integer stuID);
 	Course UpdateCourse(Course c);
 	Course findById(Integer id); 
+	Course createCourse(Course c);
+
 }

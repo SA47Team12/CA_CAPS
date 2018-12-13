@@ -26,17 +26,17 @@ public class StudentValidator implements org.springframework.validation.Validato
 	public void validate(Object target, Errors errors) {
 		// TODO Auto-generated method stub
 		Student s = (Student) target;
-<<<<<<< HEAD
+
 		ValidationUtils.rejectIfEmpty(errors, "firstname", "The Employee Id field cant be empty.");
 		ValidationUtils.rejectIfEmpty(errors, "lastname", "error.employee.employeeid.empty");
 	    System.out.println(s.toString());
 
-=======
+
 		ValidationUtils.rejectIfEmpty(errors, "email", "email cannot be empty");
 		ValidationUtils.rejectIfEmpty(errors, "phone", "phone cannot be empty");
 		ValidationUtils.rejectIfEmpty(errors, "address", "Address cannot be empty");
 		System.out.println(s.toString());
->>>>>>> branch 'master' of http://parinita88@github.com/SA47Team12/CA_CAPS.git
+
 	}
 	
 //	public boolean isValid(String contactField, ConstraintValidatorContext cxt) {
