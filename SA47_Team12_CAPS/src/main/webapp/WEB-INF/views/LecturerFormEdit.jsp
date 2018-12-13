@@ -10,12 +10,12 @@
 <body>
 
 <form:form method="POST" modelAttribute="lecturer"
-	action="${pageContext.request.contextPath}/admin/ledit/${lecturer.lecturerId}.html">
+	action="${pageContext.request.contextPath}/admin/lecturer/edit/${lecturer.lecturerId}.html">
 		<center>
 			<table cellpadding=4 cellspacing=2 border=0>
 				<tr>
 				   <td> Lecturer ID</td>
-				   <td><form:input path="lastname" readonly="true" /></td>
+				   <td><form:input path="lecturerId" readonly="true" /></td>
 				 </tr>
 				 <tr>
 				   <td> First Name</td>

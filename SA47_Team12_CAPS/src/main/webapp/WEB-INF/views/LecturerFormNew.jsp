@@ -10,16 +10,13 @@
 <body>
 
 	<form:form method="POST" modelAttribute="lecturer"
-		action="${pageContext.request.contextPath}/admin/lcreate.html">
+		action="${pageContext.request.contextPath}/admin/lecturer/create.html">
 		<center>
 			<table cellpadding=4 cellspacing=2 border=0>
-				<tr>
-					<td>Lecturer ID</td>
-					<td><form:input path="lecturerId" readonly="true" /></td>
-				</tr>
 				<tr> 
 					<td>First Name</td>
 					<td><form:input path="firstname"/></td>
+					<form:errors path="firstname" cssStyle="color: red;" /></td>
 				</tr>
 				<tr>
 					<td>Last Name</td>
