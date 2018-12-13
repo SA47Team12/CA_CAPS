@@ -17,12 +17,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import sa47.team12.exception.GradeException;
 import sa47.team12.exception.StudentNotFound;
+import sa47.team12.model.Administrator;
 import sa47.team12.model.Course;
 import sa47.team12.model.CourseDetail;
 import sa47.team12.model.CourseStudent;
 import sa47.team12.model.Lecturer;
 import sa47.team12.model.Student;
+import sa47.team12.services.AdminService;
 import sa47.team12.services.CourseDetailService;
 import sa47.team12.services.CourseService;
 import sa47.team12.services.CourseStudentService;
@@ -40,6 +43,8 @@ private StudentService sService;
 private CourseStudentService csService;
 @Autowired
 private CourseService cService;
+@Autowired
+private AdminService aService;
 @Autowired
 private StudentValidator sValidator;
 
@@ -348,5 +353,41 @@ public ModelAndView createNewCourse(@ModelAttribute @Valid Course course, Bindin
 
 //Create Course Finish
 
+//@PathVariable Integer ID
+		@RequestMapping(value = "/profile", method = RequestMethod.GET)
+		public ModelAndView adminInfoPage() {
+			ModelAndView mav = new ModelAndView("admin_profile");
+			Administrator administrator = aService.findAdministrator(1001);
+			mav.addObject("administrator", administrator);
+			ArrayList<Administrator> aList = aService.findAllAdministrator();
+			mav.addObject("alist", aList);
+			return mav;
+		}
+		
+		//@PathVariable Integer ID
+		@RequestMapping(value = "/profile/edit", method = RequestMethod.POST)
+		public ModelAndView EditadminInfo(@ModelAttribute @Valid Administrator administrator, BindingResult result, 
+		final RedirectAttributes redirectAttributes)throws GradeException  {
+		
+			if (result.hasErrors())
+				return new ModelAndView("admin_profile");
+			ModelAndView mav = new ModelAndView("redirect:/admin/profile");
+		
+			String adminEmail=administrator.getEmail();
+			String adminPhone=administrator.getPhone();
+			String adminAddress=administrator.getAddress();
+			
+			Administrator admin = aService.findAdministrator(1001);
+			admin.setEmail(adminEmail);
+			admin.setPhone(adminPhone);
+			admin.setAddress(adminAddress);
+			aService.updateAdministrator(admin);
+			String message = "User was successfully updated.";
+		
+			redirectAttributes.addFlashAttribute("message", message);
+			return mav;
+
+		}
+	
 
 }
