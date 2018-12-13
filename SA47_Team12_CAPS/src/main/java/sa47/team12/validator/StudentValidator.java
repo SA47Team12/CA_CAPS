@@ -28,7 +28,7 @@ public class StudentValidator implements org.springframework.validation.Validato
 		Student s = (Student) target;
 		ValidationUtils.rejectIfEmpty(errors, "firstname", "The first name cannot be empty.");
 		ValidationUtils.rejectIfEmpty(errors, "lastname", "The last name cannot be empty.");
-		ValidationUtils.rejectIfEmpty(errors, "password", "The password cannot be empty.");
+		//ValidationUtils.rejectIfEmpty(errors, "password", "The password cannot be empty.");
 		ValidationUtils.rejectIfEmpty(errors, "address", "The address cannot be empty.");
 		ValidationUtils.rejectIfEmpty(errors, "email", "The email cannot be empty.");
 		ValidationUtils.rejectIfEmpty(errors, "phone", "The phone number cannot be empty.");

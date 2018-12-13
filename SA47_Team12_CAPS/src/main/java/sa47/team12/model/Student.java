@@ -2,6 +2,9 @@ package sa47.team12.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -22,13 +25,14 @@ public class Student implements Serializable {
 	private String address;
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dob;
 
 	private String email;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="enrollment_date")
-	private Date enrollmentDate;
+	private Date enrollmentDate;	
 
 	private String firstname;
 

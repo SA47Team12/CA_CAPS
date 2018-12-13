@@ -1,11 +1,14 @@
 package sa47.team12.controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -46,7 +49,11 @@ public class StudentController {
 	private void initUserBinder(WebDataBinder binder) {
 		binder.addValidators(sValidator);
 	} 
-	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+	    CustomDateEditor editor = new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true);
+	    binder.registerCustomEditor(Date.class, editor);
+	}
 	//@PathVariable Integer stuID
 	@RequestMapping(value = "/grade", method = RequestMethod.GET)
 	public ModelAndView GradePage() {
@@ -151,11 +158,14 @@ public class StudentController {
 		String stuEmail=student.getEmail();
 		String stuPhone=student.getPhone();
 		String stuAddress=student.getAddress();
-		
+		Date stuDob=student.getDob();
+		String stuPass=student.getPassword();
 		Student stu = sService.findStudent(3004);
 		stu.setEmail(stuEmail);
 		stu.setPhone(stuPhone);
 		stu.setAddress(stuAddress);
+		stu.setDob(stuDob);
+		stu.setPassword(stuPass);
 		
 		sService.updateStudent(stu);
 		String message = "User was successfully updated.";

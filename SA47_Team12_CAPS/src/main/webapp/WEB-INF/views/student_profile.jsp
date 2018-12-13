@@ -26,7 +26,7 @@
 			<table cellpadding=4 cellspacing=2 border=0>
 				 <tr>
 				   <td> Student ID</td>
-				   <td><form:input path ="studentId" readonly="true"/></td>
+				   <td><form:input path ="password" readonly="true"/></td>
 				 </tr>
 				 <tr>
 				   <td> First Name</td>
@@ -36,11 +36,7 @@
 				   <td> Last Name</td>
 				   <td><form:input path ="lastname" readonly="true" /></td>
 				 </tr>
-				<tr>
-				   <td> Address</td>
-				   <td><form:input path ="address"/></td>
-				 </tr>
-				<tr>
+					<tr>
 				  	<td> Date of Birth</td>
 				   <td><form:input path ="dob" readonly="true"/></td>
 				 </tr>
@@ -51,10 +47,17 @@
 				<tr>
 				  	<td> Email Id</td>
 				   <td><form:input path ="email"/></td>
+				   <td><form:errors path="email" cssStyle="color: red;" /></td>
 				 </tr>
 				 <tr>
 				  	<td> Phone Number</td>
 				   <td><form:input path ="phone"/></td>
+				   <td><form:errors path="phone" cssStyle="color: red;" /></td>
+				 </tr>
+				 <tr>
+				   <td> Address</td>
+				   <td><form:input path ="address"/></td>
+				    <td><form:errors path="address" cssStyle="color: red;" /></td>
 				 </tr>
 				 <tr>
 				 <td><input type="submit" value="Update"> </td>

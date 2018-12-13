@@ -28,7 +28,7 @@ public class LecturerValidator implements org.springframework.validation.Validat
 		Lecturer l = (Lecturer) target;
 		ValidationUtils.rejectIfEmpty(errors, "firstname", "The first name cannot be empty.");
 		ValidationUtils.rejectIfEmpty(errors, "lastname", "The last name cannot be empty.");
-		ValidationUtils.rejectIfEmpty(errors, "password", "The password cannot be empty.");
+		//ValidationUtils.rejectIfEmpty(errors, "password", "The password cannot be empty.");
 		ValidationUtils.rejectIfEmpty(errors, "address", "The address cannot be empty.");
 		ValidationUtils.rejectIfEmpty(errors, "email", "The email id cannot be empty.");
 		/*ValidationUtils.rejectIfEmpty(errors, "gender", "The gender cannot be empty.");*/
