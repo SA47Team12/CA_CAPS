@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import sa47.team12.exception.GradeException;
 import sa47.team12.model.Course;
 import sa47.team12.model.CourseStudent;
+import sa47.team12.model.Lecturer;
 import sa47.team12.model.Student;
 import sa47.team12.services.CourseService;
 import sa47.team12.services.CourseStudentService;
@@ -146,9 +147,18 @@ public class StudentController {
 			return new ModelAndView("student_profile");
 		
 		ModelAndView mav = new ModelAndView("redirect:/student/profile");
+		
+		String stuEmail=student.getEmail();
+		String stuPhone=student.getPhone();
+		String stuAddress=student.getAddress();
+		
+		Student stu = sService.findStudent(3004);
+		stu.setEmail(stuEmail);
+		stu.setPhone(stuPhone);
+		stu.setAddress(stuAddress);
+		
+		sService.updateStudent(stu);
 		String message = "User was successfully updated.";
-	
-		sService.updateStudent(student);
 		redirectAttributes.addFlashAttribute("message", message);
 		return mav;
 
