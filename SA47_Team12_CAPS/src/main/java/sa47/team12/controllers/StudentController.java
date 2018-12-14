@@ -96,13 +96,19 @@ public class StudentController {
 	    Course c = cService.findById(id);
 	    Student s = sService.findStudent(3002);
 		CourseStudent cs = new CourseStudent();
+		
+		ArrayList<CourseStudent> cstu = csService.findAll();
+		int csSize = cstu.size();
+		CourseStudent last = cstu.get(csSize -1);
+		int newId = last.getCourseStudentId()+1;
+		
 	    cs.setCourse(c);
-	    cs.setCourseStudentId(7777);
+	    cs.setCourseStudentId(newId);
 	    cs.setEnrollmentStatus("pending");
 	    cs.setGrade(-1);
 	    cs.setStudent(s);
 		csService.enrollCourse(cs);
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("redirect:/student/enroll");
 //		String message = "The course application " + cs.getCourse().getCourseDetail().getName() + " was successfully deleted.";
 //
 //		redirectAttributes.addFlashAttribute("message", message);
