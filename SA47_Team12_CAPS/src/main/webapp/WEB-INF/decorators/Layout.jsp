@@ -114,29 +114,6 @@
 			</div>
 		</div>
 
-		<div class="searchtab">
-			<form action="/action_page.php">
-				<select name="courses">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3" selected>3</option>
-					<option value="4">4</option>
-				</select> <input type="text" id="courses"
-					placeholder="Type the course code ..."> <br> <br>
-				<input type="submit">
-			</form>
-			<%@include file="Menu.jsp"%>
-			<table>
-				<tr>
-					<td>
-						<div>
-							<dec:body />
-						</div>
-					</td>
-				</tr>
-			</table>
-		</div>
-
 
 		<address>
 			<div class="wrapper">
@@ -144,15 +121,15 @@
 					<li>
 						<p>
 							<a href="https://smu.edu.sg" target="_blank"> <img
-								src="<%=request.getContextPath()%>/image/nus.jpg" width="200"
-								height="200"></a>
+								src="<%=request.getContextPath()%>/image/nus.jpg" width="100"
+								height="100"></a>
 						</p>
 					</li>
 					<li>
 						<p>
 							<a href="https://twitter.com/codexworldblog" target="_blank">
 								<img src="<%=request.getContextPath()%>/image/status.png"
-								width="200" height="200">
+								width="100" height="100">
 							</a>
 						</p>
 					</li>
@@ -160,15 +137,15 @@
 						<p>
 							<a href="mailto:nus@example.com" target="_blank"> <img
 								src="<%=request.getContextPath()%>/image/contact.jpg"
-								width="200" height="200"></a>
+								width="100" height="100"></a>
 						</p>
 					</li>
 					<li>
 						<p>
 							<a href="http://alumnet.nus.edu.sg/module/portal/index.html"
 								target="_blank"> <img
-								src="<%=request.getContextPath()%>/image/alumni.png" width="200"
-								height="200"></a>
+								src="<%=request.getContextPath()%>/image/alumni.png" width="100"
+								height="100"></a>
 						</p>
 					</li>
 				</ul>
