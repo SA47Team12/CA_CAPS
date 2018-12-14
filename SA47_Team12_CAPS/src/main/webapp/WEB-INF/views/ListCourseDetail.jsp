@@ -25,7 +25,7 @@ th, td {
 }
 </style>
 
-<a>AddStudent</a>
+<a href="${pageContext.request.contextPath}/course/coursedetails/create.html">AddCourseDetails</a>
 <c:if test="${fn:length(coursedetails) gt 0}">
 	<table>
 		<tr>
@@ -36,7 +36,7 @@ th, td {
 			<th>Credit</th>
 			<th>Duration</th>
 			
-			<th>View</th>
+			<!-- <th>View</th> -->
 			
 		</tr>
 		
@@ -51,9 +51,9 @@ th, td {
 
 			
 			
-			<td align="center"><a
+			<%-- <td align="center"><a
 						href="${pageContext.request.contextPath}/admin/createcourse/${coursedetail.courseCode}.html">View</a></td>
-			
+			 --%>
 		</tr>
 		</c:forEach>
 	</table>

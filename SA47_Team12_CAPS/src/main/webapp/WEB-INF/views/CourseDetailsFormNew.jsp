@@ -9,38 +9,30 @@
 </head>
 <body>
 
-	<form:form method="POST" modelAttribute="course"
-		action="${pageContext.request.contextPath}/admin/createcourse.html">
+	<form:form method="POST" modelAttribute="CourseDetails"
+		action="${pageContext.request.contextPath}/course/coursedetails/create.html">
 		<center>
 			<table cellpadding=4 cellspacing=2 border=0>
+<%-- 				<tr>
+					<td>Course Code</td>
+					<td><form:input path="courseCode" readonly="true"/></td>
+				</tr> --%>
 				<tr>
-					<%-- <td>Student ID</td>
-					<td><form:input path="studentId"/></td> --%>
+					<td>Credit</td>
+					<td><form:input path="credit"/></td>>
 				</tr>
 				<tr>
-					<td>Course id</td>
-					<td><form:input path="courseId"/></td>
+					<td>Description</td>
+					<td><form:input path="description"/></td>
 				</tr>
 				<tr>
-					<td>Capacity</td>
-					<td><form:input path="capacity"/></td>
+					<td>Duration</td>
+					<td><form:input path="duration"/></td>
 				</tr>
 				<tr>
-					<td>Start Date</td>
-					<td><form:input path="startDate"/></td>
+					<td>Course Name</td>
+					<td><form:input path="name"/></td>
 				</tr>
-			
-				<tr>
-				<td>Code</td>
-					<td><form:input path="courseDetail.courseCode"/></td>
-				
-			</tr>
-			
-			<tr>
-				<td>Course Name</td>
-					<td><form:input path="courseDetail.name"/></td>
-				
-			</tr>
 
 				<tr>
 					<td><input type="submit" value="Submit"></td>
