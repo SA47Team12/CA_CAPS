@@ -104,7 +104,7 @@ public class CourseLecturerController {
 
 		if (result.hasErrors())
 			return new ModelAndView("EditCourseLecturerStudentGrade");
-		ModelAndView mav = new ModelAndView("redirect:/courselecturer/findstudentgrade");
+		ModelAndView mav = new ModelAndView("redirect:/courselecturer/findcourselist");
 
 		Integer csId=coursestudents.getCourseStudentId();
 		Float grade1=coursestudents.getGrade();

@@ -189,6 +189,8 @@
 						<br />
 						<li><a href="/SA47_Team12_CAPS/admin/courselist">Manage Course</a></li>
 						<br />
+						<li><a href="/SA47_Team12_CAPS/admin/listcoursedetail">Manage Course Details</a></li>
+						<br />
 						<li><a href="/SA47_Team12_CAPS/admin/enrollment">Manage Enrollment</a></li>
 						<br />
 						<li><a href="/SA47_Team12_CAPS/admin/assignlecturer/list">Assign Lecturer</a></li>
@@ -254,12 +256,12 @@
 						<br />
 						<li><a href="/SA47_Team12_CAPS/courselecturer/findcourselist">Grade a Course</a></li>
 						<br />
-						<li><a href="#4">View a Student Performance</a></li>
+						<li><a href="/SA47_Team12_CAPS/courselecturer/profile">Manage Lecturer Profile</a></li>
 					</ul>
 				</td>
 				<td><%@include file="Menu.jsp"%>
 					<table>
-						<tr>
+						<tr> 
 							<td>
 								<div>
 									<dec:body />
