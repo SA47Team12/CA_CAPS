@@ -19,7 +19,7 @@
 				</tr>
 				<tr>
 					<td>Course id</td>
-					<td><form:input path="courseId"/></td>
+					<td><form:input path="courseId" Readonly="True"/></td>
 				</tr>
 				<tr>
 					<td>Capacity</td>
@@ -29,6 +29,16 @@
 				<tr>
 				<td>Code</td>
 					<td><form:input path="courseDetail.courseCode"/></td>
+				
+			    </tr>
+				<tr>
+				<td>Start Date</td>
+					<td><form:input path="startDate"/></td>
+				
+			   </tr>				
+			   <tr>
+				<td>Course Name</td>
+					<td><form:input path="courseDetail.name"/></td>
 				
 			</tr>
 
