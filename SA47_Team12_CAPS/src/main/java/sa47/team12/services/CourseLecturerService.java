@@ -11,4 +11,7 @@ public interface CourseLecturerService {
 	ArrayList<CourseLecturer> findCourseTaughtbyLID(Integer lid);
 	 
 	ArrayList<CourseLecturer> findCourseEnrollmentbyLID(Integer lid);
+	
+	CourseLecturer createCourseLecturer(CourseLecturer c);
+
 }

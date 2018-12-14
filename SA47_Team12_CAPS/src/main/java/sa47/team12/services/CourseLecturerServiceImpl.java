@@ -3,6 +3,7 @@ package sa47.team12.services;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
@@ -33,6 +34,14 @@ public class CourseLecturerServiceImpl implements CourseLecturerService {
 		return clRepository.findCourseEnrollmentbyLID(lid);
 		
 		}
+	
+	@Override
+	@Transactional
+	public CourseLecturer createCourseLecturer(CourseLecturer c)
+	{
+		return clRepository.saveAndFlush(c);
+	}
+
 
 
 }

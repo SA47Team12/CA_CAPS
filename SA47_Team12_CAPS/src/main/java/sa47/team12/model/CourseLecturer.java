@@ -2,6 +2,9 @@ package sa47.team12.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 
@@ -21,10 +24,12 @@ public class CourseLecturer implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="schedule_enddate")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date scheduleEnddate;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="schedule_startdate")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date scheduleStartdate;
 
 	//bi-directional many-to-one association to Course
