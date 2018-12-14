@@ -5,6 +5,7 @@
 
 <html>
 
+
 <c:if test="${fn:length(course) gt 0}">
 	<table class="table table-bordered">
 		<tr>

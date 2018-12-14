@@ -189,7 +189,7 @@
 						<br />
 						<li><a href="/SA47_Team12_CAPS/admin/courselist">Manage Course</a></li>
 						<br />
-						<li><a href="/SA47_Team12_CAPS/admin/listcoursedetail">Manage Course Details</a></li>
+						<li><a href="/SA47_Team12_CAPS/admin/listcoursedetail">Add Course Details</a></li>
 						<br />
 						<li><a href="/SA47_Team12_CAPS/admin/enrollment">Manage Enrollment</a></li>
 						<br />
