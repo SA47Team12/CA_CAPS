@@ -183,13 +183,15 @@
 				<td class="sidebar-links">
 
 					<ul>
-						<li><a href="/SA47_Team12_CAPS/admin/list">Manage Students</a></li>
+						<li><a href="/SA47_Team12_CAPS/admin/student/list">Manage Students</a></li>
 						<br />
-						<li><a href="/SA47_Team12_CAPS/admin/llist">Manage Lecturer</a></li>
+						<li><a href="/SA47_Team12_CAPS/admin/lecturer/list">Manage Lecturer</a></li>
 						<br />
-						<li><a href="/SA47_Team12_CAPS/admin/llist">Manage Course</a></li>
+						<li><a href="/SA47_Team12_CAPS/admin/courselist">Manage Course</a></li>
 						<br />
 						<li><a href="/SA47_Team12_CAPS/admin/enrollment">Manage Enrollment</a></li>
+						<br />
+						<li><a href="/SA47_Team12_CAPS/admin/assignlecturer/list">Assign Lecturer</a></li>
 					</ul>
 
 				</td>
@@ -250,7 +252,7 @@
 							href="/SA47_Team12_CAPS/courselecturer/findcourseenrollment">View
 								Course Enrollment</a></li>
 						<br />
-						<li><a href="#3">Grade a Course</a></li>
+						<li><a href="/SA47_Team12_CAPS/courselecturer/findcourselist">Grade a Course</a></li>
 						<br />
 						<li><a href="#4">View a Student Performance</a></li>
 					</ul>
